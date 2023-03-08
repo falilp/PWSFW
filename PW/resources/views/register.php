@@ -26,23 +26,14 @@
         <input type="submit" value="Enviar">
     </from>
     <?php   
+        include 'reg.php';
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $nombre = $_POST["nombre"];
             $apellidos = $_POST["apellidos"];
             $email = $_POST["email"];
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
-            $contrasenaHash = password_hash($contrasena,PASSWORD_BCRYPT,['cost' => 10]);
-            if(strlen($telefono) == 9 && strlen($contrasena) >= 8){
-                $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-                $consulta = "INSERT INTO usuarios (nombre,apellidos,email,telefono,contrasena) VALUES ('$nombre','$apellidos','$email','$telefono','$contrasenaHash')";
-                if(mysqli_query($conexion,$consulta)){
-                    echo "Usuario registrado.";
-                }else{
-                    echo "No se pudo registrar al Usuario.";
-                }
-                mysqli_close($conexion);
-            }
+            registrar($nombre,$apellidos,$email,$telefono,$contrasena);
         }
     ?>
     </body>
