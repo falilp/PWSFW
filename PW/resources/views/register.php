@@ -30,7 +30,7 @@
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
 
-            $conexion = mysqli_connect();
+            $conexion = mysqli_connect();//Se debe crear la base de datos.
             $consulta = "INSERT INTO usuarios (id,nombre,apellidos,email,telefono,contrasena) VALUES ('0','$nombre','$apellidos','$email','$telefono','$contrasena')";
             if(mysql_query($consulta)){
                 echo "Usuario registrado.";
