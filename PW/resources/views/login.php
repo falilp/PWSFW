@@ -22,7 +22,9 @@
                 $consulta = "SELECT email,contrasena FROM usuarios WHERE email = $email";
                 $resultado = mysqli_query($conexion,$consulta);
                 if($resultado){
-                    password_verify($contrasena,$resultado["contrasena"]);
+                    if(password_verify($contrasena,$resultado["contrasena"])){
+                        header("Location:http://localhost/Main.php"); 
+                    }
                 }else{
                     echo "No se pudo registrar al Usuario.";
                 }
