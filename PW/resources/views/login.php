@@ -14,8 +14,12 @@
         <input type="submit" value="Enviar">
     </from>
     <?php   
-        include 'PW/resources/back/log.php';
-        iniciar($email,$contrasena);
+        include 'log.php';
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $email = $_POST["email"];
+            $contrasena = $_POST["contrasena"];
+            iniciar($email,$contrasena);
+        }
     ?>
     </body>
 </html>
