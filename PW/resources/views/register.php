@@ -29,7 +29,17 @@
             $email = $_POST["email"];
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
+
+            $conexion = mysqli_connect();
+            $consulta = "INSERT INTO usuarios (id,nombre,apellidos,email,telefono,contrasena) VALUES ('0','$nombre','$apellidos','$email','$telefono','$contrasena')";
+            if(mysql_query($consulta)){
+                echo "Usuario registrado.";
+            }else{
+                echo "No se pudo registrar al Usuario.";
+            }
+        }else{
+            echo "Ha ocurrido un error.";
         }
     ?>
     </body>
-</html1>
+</html>
