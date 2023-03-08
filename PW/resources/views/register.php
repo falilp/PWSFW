@@ -2,7 +2,7 @@
 <html>
     <head> 
         <title> Registro de usuario </title>
-        <link rel="icon" href="/img/iconoo.png" >
+        <link rel="icon" href="iconoo.png" >
     </head>
     <body>
     <h1>Registro</h1>
@@ -23,7 +23,7 @@
         <label for="contrasena">Contraseña:</label>
         <input type="password" name="contrasena" id="contrasena" required>
         <br>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar"/>
     </from>
     <?php   
         if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -33,15 +33,15 @@
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
             if(strlen($telefono) == 9 && strlen($contrasena) >= 8){
-                $conexion = mysqli_connect();//Se debe crear la base de datos.
-                $consulta = "INSERT INTO usuarios (id,nombre,apellidos,email,telefono,contrasena) VALUES ('0','$nombre','$apellidos','$email','$telefono','$contrasena')";
-                if(mysql_query($consulta)){
+                $conexion = mysqli_connect("127.0.0.1","root","","kmb") or die("Conexion fallida");
+                $consulta = "INSERT INTO usuarios (nombre,apellidos,email,telefono,contrasena) VALUES ('$nombre','$apellidos','$email','$telefono','$contrasena')";
+                if(mysqli_query($conexion,$consulta)){
                     echo "Usuario registrado.";
                 }else{
                     echo "No se pudo registrar al Usuario.";
                 }
+                mysqli_close($conexion);
             }
-            
         }
     ?>
     </body>
