@@ -2,12 +2,12 @@
 <html>
     <head> 
         <title> Registro de usuario </title>
-        <link rel="icon" href="iconoo.png" >
+        <link rel="icon" href="/img/iconoo.png" >
     </head>
     <body>
     <h1>Registro</h1>
 
-    <from method="post" action="">
+    <form method="post" action="">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required>
         <br>
@@ -23,7 +23,7 @@
         <label for="contrasena">Contraseña:</label>
         <input type="password" name="contrasena" id="contrasena" required>
         <br>
-        <input type="submit" value="Enviar"/>
+        <input type="submit" value="Enviar">
     </from>
     <?php   
         if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -33,7 +33,7 @@
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
             if(strlen($telefono) == 9 && strlen($contrasena) >= 8){
-                $conexion = mysqli_connect("127.0.0.1","root","","kmb") or die("Conexion fallida");
+                $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
                 $consulta = "INSERT INTO usuarios (nombre,apellidos,email,telefono,contrasena) VALUES ('$nombre','$apellidos','$email','$telefono','$contrasena')";
                 if(mysqli_query($conexion,$consulta)){
                     echo "Usuario registrado.";
