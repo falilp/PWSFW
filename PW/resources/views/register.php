@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head> <title> Registro de usuario </title> </head>
+    <head> 
+        <title> Registro de usuario </title>
+        <link rel="icon" href="/img/iconoo.png" >
+    </head>
     <body>
     <h1>Registro</h1>
 
@@ -29,16 +32,16 @@
             $email = $_POST["email"];
             $telefono = $_POST["telefono"];
             $contrasena = $_POST["contrasena"];
-
-            $conexion = mysqli_connect();//Se debe crear la base de datos.
-            $consulta = "INSERT INTO usuarios (id,nombre,apellidos,email,telefono,contrasena) VALUES ('0','$nombre','$apellidos','$email','$telefono','$contrasena')";
-            if(mysql_query($consulta)){
-                echo "Usuario registrado.";
-            }else{
-                echo "No se pudo registrar al Usuario.";
+            if(strlen($telefono) == 9 && strlen($contrasena) >= 8){
+                $conexion = mysqli_connect();//Se debe crear la base de datos.
+                $consulta = "INSERT INTO usuarios (id,nombre,apellidos,email,telefono,contrasena) VALUES ('0','$nombre','$apellidos','$email','$telefono','$contrasena')";
+                if(mysql_query($consulta)){
+                    echo "Usuario registrado.";
+                }else{
+                    echo "No se pudo registrar al Usuario.";
+                }
             }
-        }else{
-            echo "Ha ocurrido un error.";
+            
         }
     ?>
     </body>
