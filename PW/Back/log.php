@@ -2,10 +2,10 @@
 function iniciar($email,$contrasena){
     if(strlen($contrasena) >= 8){
         $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-        $consulta = "SELECT email,contrasena FROM usuarios WHERE email = $email";
+        $consulta = "SELECT email,pass FROM usuario WHERE email = $email";
         $resultado = mysqli_query($conexion,$consulta);
         if($resultado){
-            if(password_verify($contrasena,$resultado["contrasena"])){
+            if(password_verify($contrasena,$resultado["pass"])){
                 header("Location:http://localhost/Main.php"); 
             }
         }else{
