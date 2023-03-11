@@ -36,7 +36,7 @@
             <input type="submit" values="enviar">
         </form>
         <?php
-            include 'regPista.php';
+            include '../../Back/regPista.php';
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $tipo = $_POST['tipoPista'];
                 $precio = $_POST['precioH'];
