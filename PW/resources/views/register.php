@@ -26,7 +26,7 @@
         <input type="submit" value="Enviar">
     </from>
     <?php   
-        include '/PW/resources/Back/reg.php';
+        include '../../Back/reg.php';
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $nombre = $_POST["nombre"];
             $apellidos = $_POST["apellidos"];
