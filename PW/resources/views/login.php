@@ -14,7 +14,7 @@
         <input type="submit" value="Enviar">
     </from>
     <?php   
-        include '/PW/resources/Back/log.php';
+        include '../../Back/log.php';
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $email = $_POST["email"];
             $contrasena = $_POST["contrasena"];
