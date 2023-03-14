@@ -1,0 +1,19 @@
+.Objetos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boton{
+    background-color: #276E90;
+}
+
+.btn-primary{
+    background-color: #276E90 !important;
+    border-color: #CECFC9 !important;
+}
+
+.btn-primary:hover{
+    background-color: #0A3143 !important;
+}

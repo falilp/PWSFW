@@ -1,0 +1,94 @@
+/*BODY*/
+.Cuerpo{
+    background-color: #CECFC9;
+}
+
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
+
+/*MENU DE NAVEGACION*/
+#menu{
+    background-color: #276E90;
+}
+
+#menu ul{
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li.linea{
+    display: inline-block;
+}
+
+#menu ul li.linea a{
+    color: white;
+    display: block;
+    padding: 10px 85px;
+    text-decoration: none;
+}
+
+#menu ul li.linea a:hover{
+    background-color: #0A3143;
+}
+
+#menu ul li.despegable a{
+    display: block;
+    padding: 10px 91.5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdowngtx{
+    background-color: #276E90;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.dropdowngtx li{
+    display: block;
+}
+
+.dropdowngtx li a:hover{
+    background: #2e3d43;
+}
+
+#menu ul li:hover .dropdowngtx{
+    display: block;
+}
+
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
+
+/*PIE DE PAGINA*/
+.PiePagina{
+    display: flex;
+    background-color: #276E90;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.PiePagina p{
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Contacto{
+list-style: none;
+}
+
+.Columna{
+    width: 25%;
+}
+
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
+/*_________________________________________________________________________________________________*/
