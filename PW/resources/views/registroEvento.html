@@ -4,26 +4,32 @@
         <title> Registro de Evento </title>
         <meta charset="utf-8">
         <link rel="icon" href="/img/iconoo.png">
-        <link rel="stylesheet" href="registroEventoCSS.css"
+        <link rel="stylesheet" href="EstiloregistroEventoCSS.css"
     </Head>
     <body>
+        <div class="body">
         <!-- Vista Encargada de registrar Evento--->
         <header>
-            <h1>¡Bienvenido a la sección de reserva de pistas deportivas de KMB!</h1>
+            <div class="h1_body">
+                <h1>¡Bienvenido a la sección de reserva de pistas deportivas de KMB!</h1>
+            </div>
         </header>
         <main>
             <article>
                 <!-- Articulo que se encarga de mostrar la información necesaria al Usuario para registrar el Evento-->
+                <h2>¿Qué encontrarás en esta sección?</h2>
                 <section>
+                <div class="imagen_parrafo">
+                    <img src="../img/genteFelizHaciendoDeporte.jpg" title="Gente Feliz Haciendo Deporte" width="95%" height="auto">
+                </div>
+                <div class="parrafo_body">
                     <!-- Conjunto de parrafos de Bienvenida a la pagina de registrar Eventos-->
                     <p>
-                    Aquí podrás reservar fácilmente la pista que necesitas para organizar cualquier tipo de evento deportivo, 
-                    ya sea para jugar con amigos o para competir en un torneo. 
+                    Aquí podrás reservar fácilmente la pista que necesitas para organizar cualquier tipo de evento deportivo, ya sea para jugar con amigos o para competir en un torneo. 
                     </p>
 
                     <p>
-                    En esta página encontrarás información detallada sobre cada una de las pistas disponibles, así como fotos y reseñas de otros usuarios 
-                    que han utilizado nuestras instalaciones anteriormente. 
+                    En esta página encontrarás información detallada sobre cada una de las pistas disponibles, así como fotos y reseñas de otros usuarios que han utilizado nuestras instalaciones anteriormente. 
                     </p>
 
                     <p>
@@ -31,8 +37,7 @@
                     </p>
 
                     <p>
-                    En KMB nos aseguramos de que todas nuestras pistas estén en excelentes condiciones para su uso, para que puedas disfrutar de una experiencia de juego 
-                    de alta calidad. 
+                    En KMB nos aseguramos de que todas nuestras pistas estén en excelentes condiciones para su uso, para que puedas disfrutar de una experiencia de juego de alta calidad. 
                     </p>    
 
                     <p>
@@ -41,73 +46,59 @@
 
                     <p>
                     Así que no esperes más y reserva tu pista deportiva en KMB hoy mismo.
-                    </p>   
+                    </p>
+                </div> 
                 </section>
 
-                <section>
-                    <!-- Eventos predeterminados -->
-                    <h2>Eventos disponibles:</h2>
-                    <nav>
-                        <ul>
-                            <li><p><a href="#evento_cumpleannos" title="Cumpleaños"> Cumpleaños</a></p></li>
-                            <li><p><a href="#evento_torneo" title="Torneo">Torneo</a></p></li>
-                            <li><p><a href="#evento_personalizado" title="Personalizado"> Crea tu propio evento!</a></li></p>
-                        </ul>
-                    </nav>
-                </section>
-
-                <section>
-                    <div class="evento">
+                <div class="eventos">
+                <section id="evento0">
                         <!-- Evento: Cumpleaños -->
                         <h3 id="evento_cumpleannos" class="titulo_evento">Cumpleaños</h3>
                         <!--Descripcion del tipo de evento-->
-                        <h4>¡Celebra tu cumpleaños de una manera diferente y emocionante en nuestro complejo deportivo!</h4> 
+                        <h4>¡Celebra tu cumpleaños de una manera diferente y emocionante en nuestro complejo deportivo!</h4>
+                        <img src="../img/niñosjugandofutbol.jpg" title="Niños Jugando al Futbol">
                         <p>
                         </p>
-                    </div>
                 </section>    
-
-                <section>
-                    <div class="evento">
+                
+                <section id="evento1">
                         <!-- Evento: Torneo -->
                         <h3 id="evento_torneo" class="titulo_evento">Torneo</h3>
                         <!--Descripcion del tipo de evento-->
                         <h4>¡Demuestra tu talento en nuestro campo de juego y conviértete en el campeón del complejo deportivo!</h4>
+                        <img src="../img/trofeo.png" title="Manos levantando trofeo">
                         <p>
 
                         </p>
-                    </div>
                 </section>    
 
-                <section>
-                    <div class="evento">
+                <section id="evento2">
                         <!-- Evento: Personalizado-->
                         <h3 id="evento_personalizado" class="titulo_evento">Crea tu propio Evento</h3>
                         <!--Descripcion del tipo de evento-->
                         <h4>¡Crea el evento deportivo de tus sueños con nosotros y haz que sea una experiencia única e inolvidable!</h4>
                         <p>
-                            
+                            <section>
+                                <!-- Sección para llamar al codigoPHP para registrar el evento en la BD-->
+                                <form method="post" action="..\..\Back\regEvento.php">
+                                    <label for="descripcion">Descripcion</label>
+                                    <input type="text" name="descripcion" id="descripcion" required>
+                                    <br>
+                                        <label for="fecha">Fecha</label>
+                                        <input type="datetime-local" name="fecha" id="fecha" required>
+                                    <br>
+                                        <!-- La vista mostrara la consulta de todos los campos y se seleccionara el indicado con checkbox-->
+                                        <!-- <input type="checkbox" name="codPista" id="codPista" value="codPista de la pista" required>-->
+                                    <input type="submit" values="enviar">
+                                </form>
+                            </section>
                         </p>
-                    </div>
                 </section>
+            </div>
             </article>   
-
-            <section>
-                <!-- Sección para llamar al codigoPHP para registrar el evento en la BD-->
-                <form method="post" action="..\..\Back\regEvento.php">
-                    <label for="descripcion">Descripcion</label>
-                    <input type="text" name="descripcion" id="descripcion" required>
-                    <br>
-                        <label for="fecha">Fecha</label>
-                        <input type="datetime-local" name="fecha" id="fecha" required>
-                    <br>
-                        <!-- La vista mostrara la consulta de todos los campos y se seleccionara el indicado con checkbox-->
-                        <!-- <input type="checkbox" name="codPista" id="codPista" value="codPista de la pista" required>-->
-                    <input type="submit" values="enviar">
-                </form>
-            </section>
-        </main>
-        <footer>
-        </footer>    
+        </main> 
+    </div> 
     </body>
+    <footer>
+    </footer> 
 </html>

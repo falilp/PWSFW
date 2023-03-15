@@ -1,0 +1,57 @@
+/*Estilo del cuerpo HTML*/
+.body
+{
+    background-color: #cecfc9;
+}
+
+.h1_body
+{
+    background-color: #276E90;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.parrafo_body
+{
+    color: black;
+    text-align: left;
+    font-size: 110%;
+    width: 60%;
+}
+
+.imagen_parrafo
+{
+    float: right;
+    margin-right: 10px; /* agregar un margen entre la imagen y el texto */
+}
+
+.body h2
+{
+    background-color: #256889;
+    color: white;
+    padding: 5px;
+}
+
+.eventos
+{
+    column-count: 3;
+    column-gap: 5px;
+    display: flex;
+}
+
+.eventos h3
+{
+    background-color: #256889;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.eventos img
+{
+    max-width: 100%;
+    height: auto; /* para mantener la proporción de la imagen */
+}
+
+/*Pie de Pagina*/
