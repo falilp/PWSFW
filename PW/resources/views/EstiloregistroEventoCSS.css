@@ -1,57 +1,80 @@
 /*Estilo del cuerpo HTML*/
-.body
-{
-    background-color: #cecfc9;
+html{
+    margin: 0;
 }
 
-.h1_body
-{
+body{
+    background-color: #CECFC9;
+    height: 100%;
+}
+
+.titulo_body{
     background-color: #276E90;
     color: white;
     padding: 10px;
     text-align: center;
+    margin: 0;
 }
 
-.parrafo_body
-{
+.parrafo_body{
     color: black;
     text-align: left;
     font-size: 110%;
     width: 60%;
+    background-image: url();
 }
 
-.imagen_parrafo
-{
+.imagen_parrafo{
     float: right;
     margin-right: 10px; /* agregar un margen entre la imagen y el texto */
 }
 
-.body h2
-{
+.subtitulo_body{
     background-color: #256889;
     color: white;
     padding: 5px;
+    margin: none;
 }
 
-.eventos
-{
+.eventos{
     column-count: 3;
     column-gap: 5px;
     display: flex;
 }
 
-.eventos h3
-{
+.eventos h3{
     background-color: #256889;
     color: white;
     padding: 5px;
     text-align: center;
 }
 
-.eventos img
-{
+.eventos img{
     max-width: 100%;
     height: auto; /* para mantener la proporción de la imagen */
 }
 
 /*Pie de Pagina*/
+/*PIE DE PAGINA*/
+.PiePagina{
+    display: flex;
+    background-color: #276E90;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.PiePagina p{
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Contacto{
+list-style: none;
+}
+
+.Columna{
+    width: 25%;
+}
