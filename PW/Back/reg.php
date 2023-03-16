@@ -12,4 +12,12 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
         mysqli_close($conexion);
     }
 }
+
+$nombre = $_POST['nombre'];
+$apellidos= $_POST['apellidos'];
+$email = $_POST['email'];
+$telefono= $_POST['telefono'];
+$contrasenna= $_POST['contrasena'];
+
+registrar($nombre, $apellidos, $email, $telefono, $contrasenna);
 ?>

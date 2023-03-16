@@ -2,39 +2,72 @@
 <html>
     <head> 
         <title> Registro de usuario </title>
-        <link rel="icon" href="/img/iconoo.png" >
+        <link rel="icon" href="../img/iconoPagina.ico" >
+        <link rel="stylesheet" href="EstiloRegistro.css">
     </head>
     <body>
-    <h1>Registro</h1>
-
-    <form method="post" action="">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" required>
-        <br>
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" name="apellidos" id="apellidos" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br>
-        <label for="telefono">Teléfono:</label>
-        <input type="number" name="telefono" id="telefono" required>
-        <br>
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" id="contrasena" required>
-        <br>
-        <input type="submit" value="Enviar">
-    </from>
-    <?php   
-        include '../../Back/reg.php';
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $nombre = $_POST["nombre"];
-            $apellidos = $_POST["apellidos"];
-            $email = $_POST["email"];
-            $telefono = $_POST["telefono"];
-            $contrasena = $_POST["contrasena"];
-            registrar($nombre,$apellidos,$email,$telefono,$contrasena);
-        }
-    ?>
+        <header>
+            <h1 id="title">Registro</h1>
+        </header>
+        <nav>
+                <div id="menu">
+                    <ul>
+                        <li class="linea"><a href="Indice.html">Inicio</a></li>
+                        <li class="linea"><a href="Login.html">Acceso</a></li>
+                        <li class="linea">
+                            <a href="Instalaciones.html">Instalaciones</a>
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="">Baloncesto</a></li>
+                                <li class="despegable"><a href="">Fútbol Sala</a></li>
+                                <li class="despegable"><a href="">Fútbol 7</a></li>
+                                <li class="despegable"><a href="">Fútbol 11</a></li>
+                                <li class="despegable"><a href="">Pádel</a></li>
+                                <li class="despegable"><a href="">Tenis</a></li>
+                            </ul>
+                        </li>
+                        <li class="linea"><a href="Evento.html">Eventos</a></li>
+                    </ul>
+                </div>
+        </nav>
+        <main>
+            <section>
+                <form method="post" action="../../Back/reg.php">
+                    <h3>Registrate ahora: </h3>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                    <br>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                    <br>
+                    <label for="telefono">Telefono:</label>
+                    <input type="number" name="telefono" id="telefono" required>
+                    <br>
+                    <label for="contrasena">Contrasena:</label>
+                    <input type="password" name="contrasena" id="contrasena" required>
+                    <br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>
+        </main>
     </body>
+    <footer>
+        <div class="Columna">
+            <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">
+                <img src="../img/LogoUCA.png" alt="Logo Escuela Superior Ingenieria" class="UCA" >
+            </a>
+        </div>
+        
+        <div class="Columna">
+            <p class="Parrafos">KMB Sports</p>
+        </div>
+        <div class="Columna">
+            <ul class="Contacto">
+                <li><p class="Parrafos">Email: kmbsports@hotmail.com</p></li>
+                <li><p class="Parrafos">Telefono: 897430635</p></li>
+            </ul>
+        </div>
+    </footer>
 </html>
