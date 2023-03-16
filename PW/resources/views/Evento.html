@@ -4,7 +4,7 @@
         <title> Registro de Evento </title>
         <meta charset="utf-8">
         <link rel="icon" href="/img/iconoo.png">
-        <link rel="stylesheet" href="EstiloregistroEventoCSS.css">
+        <link rel="stylesheet" href="EstiloEventoCSS.css">
     </Head>
     <body>
         <!-- Vista Encargada de registrar Evento--->
@@ -14,11 +14,10 @@
         <nav>
             <div id="menu">
                 <ul>
-                    <li class="linea"><a href="../HTML/Indice.html">Inicio</a></li>
-                    <li class="linea"><a href="">Eventos</a></li>
+                    <li class="linea"><a href="Indice.html">Inicio</a></li>
                     <li class="linea"><a href="">Acceso</a></li>
                     <li class="linea">
-                        <a href="../HTML/Instalaciones.html">Instalaciones</a>
+                        <a href="Instalaciones.html">Instalaciones</a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="">Baloncesto</a></li>
                             <li class="despegable"><a href="">Fútbol Sala</a></li>
@@ -77,7 +76,43 @@
                 
             </article>   
         </main> 
+        <section class="form_1_subtitle">
+            <h2>Haz tu Reserva</h2>
+            <p id="p_form">
+                ¡Disfruta en familia o con amigos de los eventos personalizados de KMB!
+            </p>
+            <form action="../../Back/regEvento.php" method="POST">
+                <p>
+                    <label>Categoría: </label>
+                    <select id="select" name="categoria">
+                        <option>Cumpleaños</option>
+                        <option>Torneo</option>
+                    </select>
+                    <br>
+
+                    <label>Selecciona la Fecha: </label>
+                    <input type="date" id="fecha" name="fecha">
+                    <br>
+
+                    <label>Selecciona Pista: </label>
+                    <select id="select" name="pista">
+                        <option>Baloncesto</option>
+                        <option>Futbol Sala</option>
+                        <option>Futbol 7</option>
+                        <option>Futbol 11</option>
+                        <option>Padel</option>
+                        <option>Tenis</option>
+                    </select>
+
+                    <label>Introduce descripción: </label>
+                    <input type="text" id="descrip" name="descripcion"> 
+
+                    <button type="submit" name="reserva">Reservar</button>
+                </p>
+            </form>
+        </section>
     </body>
+
     <footer class="PiePagina">
         <div class="Columna">
             <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">
