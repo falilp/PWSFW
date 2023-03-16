@@ -2,6 +2,11 @@
     margin: 0%;
 }
 
+body{
+    background-image: url("https://images6.alphacoders.com/661/661502.jpg");
+    background-size: 105%;
+}
+
 
 #title{
     background-color: #0a3143;
