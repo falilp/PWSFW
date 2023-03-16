@@ -9,89 +9,72 @@
     <body>
         <!-- Vista Encargada de registrar Evento--->
         <header>
-            <h1 class="titulo_body">¡Bienvenido a la sección de reserva de pistas deportivas de KMB!</h1>
+            <h1 id="title_body_1">¡Bienvenido a la sección de reserva de Eventos de KMB!</h1>
         </header>
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li class="linea"><a href="../HTML/Indice.html">Inicio</a></li>
+                    <li class="linea"><a href="">Eventos</a></li>
+                    <li class="linea"><a href="">Acceso</a></li>
+                    <li class="linea">
+                        <a href="../HTML/Instalaciones.html">Instalaciones</a>
+                        <ul class="dropdowngtx">
+                            <li class="despegable"><a href="">Baloncesto</a></li>
+                            <li class="despegable"><a href="">Fútbol Sala</a></li>
+                            <li class="despegable"><a href="">Fútbol 7</a></li>
+                            <li class="despegable"><a href="">Fútbol 11</a></li>
+                            <li class="despegable"><a href="">Pádel</a></li>
+                            <li class="despegable"><a href="">Tenis</a></li>
+    
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <main>
             <article>
-                <!-- Articulo que se encarga de mostrar la información necesaria al Usuario para registrar el Evento-->
-                <h2 class="subtitulo_body">¿Qué encontrarás en esta sección?</h2>
-                <section>
-                <div class="imagen_parrafo">
-                    <img src="../img/genteFelizHaciendoDeporte.jpg" title="Gente Feliz Haciendo Deporte" width="95%" height="auto">
-                </div>
-                <div class="parrafo_body">
-                    <!-- Conjunto de parrafos de Bienvenida a la pagina de registrar Eventos-->
-                    <p>
-                    Aquí podrás reservar fácilmente la pista que necesitas para organizar cualquier tipo de evento deportivo, ya sea para jugar con amigos o para competir en un torneo. 
-                    </p>
-
-                    <p>
-                    En esta página encontrarás información detallada sobre cada una de las pistas disponibles, así como fotos y reseñas de otros usuarios que han utilizado nuestras instalaciones anteriormente. 
-                    </p>
-
-                    <p>
-                    Todo lo que tienes que hacer es seleccionar el deporte que deseas practicar, la fecha y hora que te convengan, y realizar el pago en línea de manera segura y fácil. 
-                    </p>
-
-                    <p>
-                    En KMB nos aseguramos de que todas nuestras pistas estén en excelentes condiciones para su uso, para que puedas disfrutar de una experiencia de juego de alta calidad. 
-                    </p>    
-
-                    <p>
-                    Si necesitas ayuda para organizar un evento deportivo más grande, nuestro equipo de expertos estará encantado de ayudarte a coordinar todos los detalles necesarios. 
-                    </p>
-
-                    <p>
-                    Así que no esperes más y reserva tu pista deportiva en KMB hoy mismo.
-                    </p>
-                </div> 
-                </section>
-
-                <div class="eventos">
-                <section id="evento0">
-                        <!-- Evento: Cumpleaños -->
-                        <h3 id="evento_cumpleannos" class="titulo_evento">Cumpleaños</h3>
-                        <!--Descripcion del tipo de evento-->
-                        <h4>¡Celebra tu cumpleaños de una manera diferente y emocionante en nuestro complejo deportivo!</h4>
-                        <img src="../img/niñosjugandofutbol.jpg" title="Niños Jugando al Futbol">
-                        <p>
-                        </p>
-                </section>    
+                <div class="slide">
+                    <div class="slide-inner">
+                        <input class="slide-open" type="radio" id="slide-1" 
+                                name="slide" aria-hidden="true" hidden="" checked="checked">
+                        <div class="slide-item">
+                            <img src="../img/niñosCumpleaños.jpg">
+                            <label class="slide-text">¡Celebra tu cumpleaños con nostros!
+                            </label>
+                        </div>
+                        <input class="slide-open" type="radio" id="slide-2" 
+                                name="slide" aria-hidden="true" hidden="">
+                        <div class="slide-item">
+                            <img src="https://www.xtrafondos.com/wallpapers/seleccion-argentina-con-trofeo-copa-mundial-fifa-11268.jpg">
+                            <label class="slide-text">Crea un torneo y compite para ser el mejor
+                            </label>
+                        </div>
+                        <input class="slide-open" type="radio" id="slide-3" 
+                                name="slide" aria-hidden="true" hidden="">
+                        <div class="slide-item">
+                            <img src="https://fondosmil.com/fondo/5803.jpg">
+                            <label class="slide-text">Crea tu propio evento y pasatelo en grande con tus amigos
+                            </label>
+                        </div>
+                        <label for="slide-3" class="slide-control prev control-1">‹</label>
+                        <label for="slide-2" class="slide-control next control-1">›</label>
+                        <label for="slide-1" class="slide-control prev control-2">‹</label>
+                        <label for="slide-3" class="slide-control next control-2">›</label>
+                        <label for="slide-2" class="slide-control prev control-3">‹</label>
+                        <label for="slide-1" class="slide-control next control-3">›</label>
+                        <ol class="slide-indicador">
+                            <li>
+                                <label for="slide-1" class="slide-circulo">•</label>
+                            </li>
+                            <li>
+                                <label for="slide-2" class="slide-circulo">•</label>
+                            </li>
+                            <li>
+                                <label for="slide-3" class="slide-circulo">•</label>
+                            </li>
+                        </ol>
                 
-                <section id="evento1">
-                        <!-- Evento: Torneo -->
-                        <h3 id="evento_torneo" class="titulo_evento">Torneo</h3>
-                        <!--Descripcion del tipo de evento-->
-                        <h4>¡Demuestra tu talento en nuestro campo de juego y conviértete en el campeón del complejo deportivo!</h4>
-                        <img src="../img/trofeo.png" title="Manos levantando trofeo">
-                        <p>
-
-                        </p>
-                </section>    
-
-                <section id="evento2">
-                        <!-- Evento: Personalizado-->
-                        <h3 id="evento_personalizado" class="titulo_evento">Crea tu propio Evento</h3>
-                        <!--Descripcion del tipo de evento-->
-                        <h4>¡Crea el evento deportivo de tus sueños con nosotros y haz que sea una experiencia única e inolvidable!</h4>
-                        <p>
-                            <section>
-                                <!-- Sección para llamar al codigoPHP para registrar el evento en la BD-->
-                                <form method="post" action="..\..\Back\regEvento.php">
-                                    <label for="descripcion">Descripcion</label>
-                                    <input type="text" name="descripcion" id="descripcion" required>
-                                    <br>
-                                        <label for="fecha">Fecha</label>
-                                        <input type="datetime-local" name="fecha" id="fecha" required>
-                                    <br>
-                                        <!-- La vista mostrara la consulta de todos los campos y se seleccionara el indicado con checkbox-->
-                                        <!-- <input type="checkbox" name="codPista" id="codPista" value="codPista de la pista" required>-->
-                                    <input type="submit" values="enviar">
-                                </form>
-                            </section>
-                        </p>
-                </section>
-            </div>
             </article>   
         </main> 
     </body>
@@ -113,3 +96,4 @@
         </div>
 </footer>   
 </html>
+
