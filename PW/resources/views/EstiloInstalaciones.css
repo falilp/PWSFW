@@ -5,6 +5,20 @@
     flex-wrap: wrap;
 }
 
+#h1_cuerpo
+{
+    background-color: #0a3143;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    top: -10px;
+    text-align: left;
+    margin-bottom: 0%;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
 .boton{
     background-color: #276E90;
 }

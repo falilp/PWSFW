@@ -1,4 +1,7 @@
 /*BODY*/
+*{
+    font-family:'Times New Roman', Times, serif;
+}
 .Cuerpo{
     background-color: #CECFC9;
 }

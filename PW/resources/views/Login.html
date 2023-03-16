@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head> <title> Inicio Sesion de usuario </title> </head>
+    <head> 
+        <title> Inicio Sesion de usuario</title> 
+        <link rel="stylesheet" href="EstiloLogin.CSS">
+    </head>
     <body>
-    <h1>Inicio Sesion</h1>
+        <header>
+            <h1 id="title">Inicio Sesion</h1>
+        </header>
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li class="linea"><a href="Indice.html">Inicio</a></li>
+                    <li class="linea">
+                        <a href="Instalaciones.html">Instalaciones</a>
+                        <ul class="dropdowngtx">
+                            <li class="despegable"><a href="">Baloncesto</a></li>
+                            <li class="despegable"><a href="">Fútbol Sala</a></li>
+                            <li class="despegable"><a href="">Fútbol 7</a></li>
+                            <li class="despegable"><a href="">Fútbol 11</a></li>
+                            <li class="despegable"><a href="">Pádel</a></li>
+                            <li class="despegable"><a href="">Tenis</a></li>
+    
+                        </ul>
+                    </li>
+                    <li class="linea"><a href="Evento.html">Eventos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <form method="post" action="../../Back/log.php">
+                <h3>Inicia sesión</h3>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <br>
 
-    <from method="post" action="">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br>
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" id="contrasena" required>
-        <br>
-        <input type="submit" value="Enviar">
-    </from>
-    <?php   
-        include '../../Back/log.php';
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $email = $_POST["email"];
-            $contrasena = $_POST["contrasena"];
-            iniciar($email,$contrasena);
-        }
-    ?>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" name="contrasena" id="contrasena" required>
+                <br>
+
+                <a href="Registro.html">
+                    <p>
+                        ¿No estás registrado?
+                    </p>
+                </a>
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
     </body>
 </html>

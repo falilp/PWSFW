@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     overflow-x: hidden;
+    font-family:'Times New Roman', Times, serif;
 }
 
 /*Todo que este dentro del html*/
@@ -14,7 +15,7 @@ body{
 }
 
 #title_body_1{
-    background-color: #276E90;
+    background-color: #0a3143;
     color: white;
     height: 100%;
     padding: 20px;
@@ -259,7 +260,6 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
     margin: 0 auto;
     margin-top: 35px;
     margin-bottom: 35px;
