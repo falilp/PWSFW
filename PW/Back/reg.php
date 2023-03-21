@@ -13,11 +13,13 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
     }
 }
 
-$nombre = $_POST['nombre'];
-$apellidos= $_POST['apellidos'];
-$email = $_POST['email'];
-$telefono= $_POST['telefono'];
-$contrasenna= $_POST['contrasena'];
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $nombre = $_POST['nombre'];
+    $apellidos= $_POST['apellidos'];
+    $email = $_POST['email'];
+    $telefono= $_POST['telefono'];
+    $contrasenna= $_POST['contrasena'];
 
-registrar($nombre, $apellidos, $email, $telefono, $contrasenna);
+    registrar($nombre, $apellidos, $email, $telefono, $contrasenna);
+}
 ?>
