@@ -1,5 +1,6 @@
 <?php
-function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
+include_once 'sesion.php';
+function registrar($nombre,$apellidos,$email,$telefono,$contrasena,$sesion){
     $pass = password_hash($contrasena,PASSWORD_BCRYPT,['cost' => 10]);
 
     if(strlen($telefono) == 9 && strlen($contrasena) >= 8){
@@ -8,9 +9,16 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
         $consulta = "INSERT INTO usuario (nombre,apellidos,email,telefono,pass) VALUES ('$nombre','$apellidos','$email','$telefono','$pass')";
 
         if(mysqli_query($conexion,$consulta)){
-            echo "Usuario registrado.";
+            $sesion->usuarioActual($email);
+            $variableSesion = $sesion->retornarSesion();
+
+            if($variableSesion == null || $variableSesion = ''){
+                die();
+            } 
+
+            header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php"); 
         }else{
-            echo "No se pudo registrar al Usuario.";
+            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
         }
         
         mysqli_close($conexion);
@@ -25,6 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST['email'];
     $telefono= $_POST['telefono'];
     $contrasenna= $_POST['contrasena'];
+
+    $sesion = new Sesion();
 
     registrar($nombre, $apellidos, $email, $telefono, $contrasenna);
 }
