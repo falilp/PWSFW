@@ -11,11 +11,14 @@ function registrarEvento($categoria, $descripcion,$fecha,$codpista){
     mysqli_close($conexion);
 } 
 
-$categoria = $_POST['categoria'];
-$descripcion = $_POST['descripcion'];
-$fecha = $_POST['fecha'];
-$pista = $_POST['pista'];
-$codpista=1;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $categoria = $_POST['categoria'];
+    $descripcion = $_POST['descripcion'];
+    $fecha = $_POST['fecha'];
+    $pista = $_POST['pista'];
+    $codpista=1;
 
-registrarEvento($categoria, $descripcion, $fecha, $codpista);
+    registrarEvento($categoria, $descripcion, $fecha, $codpista);
+}
+
 ?>
