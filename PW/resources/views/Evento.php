@@ -20,6 +20,7 @@
                         <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="">Cuenta</a></li>
+                            <li class="despegable"><a href="">Mis reservas</a></li>
                             <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                         </ul>
                     </li>
@@ -107,12 +108,13 @@
 
                     <label>Selecciona Pista: </label>
                     <select id="select" name="pista">
-                        <option>Baloncesto</option>
-                        <option>Futbol Sala</option>
-                        <option>Futbol 7</option>
-                        <option>Futbol 11</option>
-                        <option>Padel</option>
-                        <option>Tenis</option>
+                        <option value="1">Futbol Sala</option>
+                        <option value="2">Tenis</option>
+                        <option value="3">Baloncesto</option>
+                        <option value="4">Volleyball</option>
+                        <option value="5">Padel</option>
+                        <option value="6">Futbol 7</option>
+                        <option value="7">Futbol 11</option>
                     </select>
 
                     <label>Introduce descripción: </label>

@@ -14,22 +14,27 @@
     </head>
     
     <body class="Cuerpo">
-        <h1 id="cuerpo_h1">¡Bienvenido a KMB!</h1>
+        <h1 id="cuerpo_h1">¡Bienvenido a KMB!
+        </h1>
         <nav>
             <div id="menu">
                 <ul>
+                    <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
                     <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
-                    <?php if(isset($_SESSION['usuario'])):?>
-                        <li class="linea">
-                        <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
-                        <ul class="dropdowngtx">
-                            <li class="despegable"><a href="">Cuenta</a></li>
-                            <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
-                        </ul>
-                    </li>
-                    <?php else:?>
-                        <li class="linea"><a href="Login.html">Acceso</a></li>
-                    <?php endif ?>
+                        <?php if(isset($_SESSION['usuario'])):?>
+                            <li class="linea">
+                            <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="">Cuenta</a></li>
+                                <li class="despegable"><a href="">Mis reservas</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        </li>
+                        <?php else:?>
+                            <li class="linea"><a href="Login.html">Acceso</a></li>
+                        <?php endif ?>
+                        <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
+                        
                     <li class="linea">
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">

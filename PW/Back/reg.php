@@ -8,9 +8,9 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
         $consulta = "INSERT INTO usuario (nombre,apellidos,email,telefono,pass) VALUES ('$nombre','$apellidos','$email','$telefono','$pass')";
 
         if(mysqli_query($conexion,$consulta)){
-            echo "Usuario registrado.";
+            header("Location:http://localhost/PWSFW/PW/resources/views/Login.html");
         }else{
-            echo "No se pudo registrar al Usuario.";
+            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
         }
         
         mysqli_close($conexion);
