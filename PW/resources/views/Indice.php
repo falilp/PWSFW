@@ -12,7 +12,7 @@
         <title>KMBsports.com</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </head>
-
+    
     <body class="Cuerpo">
         <h1 id="cuerpo_h1">¡Bienvenido a KMB!</h1>
         <nav>
