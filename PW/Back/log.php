@@ -14,7 +14,7 @@ function iniciar($email,$contrasena,$sesion){
             } 
             header("Location:http://localhost/github/PWSFW/PW/resources/views/Indice.html"); 
         }else{
-                header("Location:http://localhost/github/PWSFW/PW/resources/views/Login.html");
+                header("Location:http://localhost/github/PWSFW/PW/resources/views/paginaERROR.html");
         }
         mysqli_close($conexion);
     }else{
