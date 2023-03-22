@@ -12,11 +12,13 @@ function iniciar($email,$contrasena,$sesion){
             if($variableSesion == null || $variableSesion = ''){
                 die();
             } 
-            header("Location:http://localhost/ProgramacionWebSinFrameWork/PW/resources/views/Indice.php"); 
+            header("Location:http://localhost/github/PWSFW/PW/resources/views/Indice.html"); 
         }else{
-                header("Location:http://localhost/ProgramacionWebSinFrameWork/PW/resources/views/Login.html");
+                header("Location:http://localhost/github/PWSFW/PW/resources/views/Login.html");
         }
         mysqli_close($conexion);
+    }else{
+        header("Location:http://localhost/github/PWSFW/PW/resources/views/Login.html");
     }    
 }
 
