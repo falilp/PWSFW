@@ -12,7 +12,7 @@ function iniciar($email,$contrasena,$sesion){
             if($variableSesion == null || $variableSesion = ''){
                 die();
             } 
-            header("Location:http://localhost/PWSFW/PW/resources/views/Indice.html"); 
+            header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php"); 
         }else{
                 header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
         }
