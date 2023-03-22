@@ -14,6 +14,8 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena){
         }
         
         mysqli_close($conexion);
+    }else{
+        header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
 }
 
