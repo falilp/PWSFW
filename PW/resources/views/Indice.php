@@ -21,7 +21,7 @@
                     <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
                         <li class="linea">
-                        <a href="Instalaciones.html"><?php echo $ses->retornarSesion()?></a>
+                        <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="">Cuenta</a></li>
                             <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
@@ -31,7 +31,7 @@
                         <li class="linea"><a href="Login.html">Acceso</a></li>
                     <?php endif ?>
                     <li class="linea">
-                        <a href="Instalaciones.html">Instalaciones</a>
+                        <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="">Baloncesto</a></li>
                             <li class="despegable"><a href="">Fútbol Sala</a></li>
@@ -41,8 +41,8 @@
                             <li class="despegable"><a href="">Tenis</a></li>
                         </ul>
                     </li>
-                    <li class="linea"><a href="Evento.html">Eventos</a></li>
-                    <li class="linea"><a href="Indice.html">Sobre Nosotros</a></li>
+                    <li class="linea"><a href="Evento.php">Eventos</a></li>
+                    <li class="linea"><a href="Indice.php">Sobre Nosotros</a></li>
                 </ul>
             </div>
     </nav>

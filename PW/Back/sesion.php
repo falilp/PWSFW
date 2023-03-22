@@ -15,7 +15,7 @@ class Sesion{
     public function cerrarSesion(){
         session_unset();
         session_destroy();
-        header("Location:http://localhost/ProgramacionWebSinFrameWork/PW/resources/views/Indice.php");
+        header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php");
     }
 }
 ?>
