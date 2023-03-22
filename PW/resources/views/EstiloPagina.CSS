@@ -7,19 +7,19 @@ body{
     background-color: white;
 }
 
-body h1{
+main h1{
     text-align: center;
     margin-top: 20%;
     color: #0a3143;
     font-size: 50px;
 }
 
-body p{
+main p{
+    text-align: center;
     color: black;
     font-size: 25px;
 }
 
-body ul{
-    color: black;
-    font-size: 20px;
+footer{
+    margin-bottom: 0%;
 }
