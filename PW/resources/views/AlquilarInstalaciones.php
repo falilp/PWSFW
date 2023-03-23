@@ -4,11 +4,11 @@
         <title> Registro de usuario </title>
         <meta charset="utf-8"> 
         <link rel="icon" href="../img/iconoPagina.ico" >
-        <link rel="stylesheet" href="EstiloRegistro.css">
+        <link rel="stylesheet" href="EstiloInsta.css">
     </head>
     <body>
         <header>
-            <h1 id="title">Registro</h1>
+            <h1 id="title">Alquiler Baloncesto</h1>
         </header>
         <nav>
                 <div id="menu">
@@ -31,35 +31,58 @@
                 </div>
         </nav>
         <main>
-            <section>
-                <form method="post" action="../../Back/regAlquiler.php">
-                    <h3>Alquilar: </h3>
-                    <label for="nombre">Tipo Pista:</label>
-                    <select name="tipoPista">
-                        <option value="1">Fútbol</option>
-                        <option value="2">Tenis</option>
-                        <option value="3">Baloncesto</option>
-                        <option value="4">Voleibol</option>
-                        <option value="5">Pádel</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label for="precioH">Precio Por Hora</label>
-                    <input type="number" name="precioH" id="precioH" required>
-                    <br>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required>
-                    <br>
-                    <label for="telefono">Telefono:</label>
-                    <input type="number" name="telefono" id="telefono" required>
-                    <br>
-                    <label for="contrasena">Contrase&ntildea:</label>
-                    <input type="password" name="contrasena" id="contrasena" required>
-                    <br>
-                    <input type="submit" value="Enviar">
-                </form>
-            </section>
+            <?php if($_SERVER["REQUEST_METHOD"] != "POST"):?>
+                <section>
+                    <form method="post" action="">
+                        <h3>Alquilar Pista Baloncesto: </h3>
+                        <br>
+                        <label for="fecha">Selecciona fecha:</label>
+                        <input type="date" name="fecha" id="fecha" required>
+                        <br>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </section>
+            <?php else: ?>
+                <?php 
+                    $fecha = $_POST['fecha'];
+                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");    
+                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0";
+                    $resultado = $conexion->query($consulta);
+                    $objeto = $resultado->fetch_all();
+                ?>
+                <section>
+                    <form method="post" action="../../Back/regAlquiler.php">
+                        <h3>Pistas: </h3>
+                        <?php foreach($objeto as $pista):?>
+                            <br>
+                            <label for="fecha">Pista: <?php print("$pista[0]");?></label>
+                            <br>
+                            <label for="fecha"><?php print("$pista[5]");?>:</label>
+                            <input type="submit" value="Reservar" name="<?php $pista[0];?>">
+                        <?php endforeach; ?>
+                    </form>
+                </section>
+            <?php endif ?>
         </main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </body>
     <footer class="PiePagina">
         <div class="Columna">

@@ -36,6 +36,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $sesion = new Sesion();
 
-    registrar($nombre, $apellidos, $email, $telefono, $contrasenna);
+    registrar($nombre, $apellidos, $email, $telefono, $contrasenna,$sesion);
 }
 ?>
