@@ -76,6 +76,7 @@
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>
                     ");
+                    
                     print("</div>"); 
                     //Restablecer la contraseña
                     print("<div class=\"formulario\">");

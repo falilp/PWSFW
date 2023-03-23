@@ -12,7 +12,7 @@ echo $codUsuario;
     $consulta = "UPDATE usuario SET nombre='$nombre', apellidos='$apellidos' ,telefono='$telefono' WHERE codUsuario='$codUsuario'";
     $result = mysqli_query($conexion,$consulta);
     if($result){
-        header("http://localhost/PWSFW/PW/resources/views/Cuenta.php");
+        header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php");
     }else{
         header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
