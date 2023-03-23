@@ -29,7 +29,7 @@
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="AlquilarBaloncesto.php">Baloncesto</a></li>
-                            <li class="despegable"><a href="AlquilarVoleibol.php">Volleyball</a></li>
+                            <li class="despegable"><a href="AlquilarVoleibol.php">Voleibol</a></li>
                             <li class="despegable"><a href="AlquilarFs.php">Fútbol Sala</a></li>
                             <li class="despegable"><a href="AlquilarF7.php">Fútbol 7</a></li>
                             <li class="despegable"><a href="AlquilarF11.php">Fútbol 11</a></li>
