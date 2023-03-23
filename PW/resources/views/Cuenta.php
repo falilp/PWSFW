@@ -5,6 +5,7 @@
         <meta title="Mi cuenta">
         <link rel="icon" href="../img/iconoPagina.ico" >
         <link rel="stylesheet" href="EstiloCuenta.css">
+        <link rel="stylesheet" href="EstiloCuentaback.css">
     </head>
     <body>
         <header>
@@ -16,9 +17,8 @@
                     <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
                     <li class="linea">
-                        <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
+                        <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
-                            <li class="despegable"><a href="Cuenta.php">Cuenta</a></li>
                             <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
                             <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                         </ul>
@@ -29,13 +29,13 @@
                     <li class="linea">
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">
-                            <li class="despegable"><a href="">Baloncesto</a></li>
-                            <li class="despegable"><a href="">Voleibol</a></li>
-                            <li class="despegable"><a href="">Fútbol Sala</a></li>
-                            <li class="despegable"><a href="">Fútbol 7</a></li>
-                            <li class="despegable"><a href="">Fútbol 11</a></li>
-                            <li class="despegable"><a href="">Pádel</a></li>
-                            <li class="despegable"><a href="">Tenis</a></li>
+                            <li class="despegable"><a href="AlquilarBaloncesto.php">Baloncesto</a></li>
+                            <li class="despegable"><a href="AlquilarVoleibol.php">Volleyball</a></li>
+                            <li class="despegable"><a href="AlquilarFs.php">Fútbol Sala</a></li>
+                            <li class="despegable"><a href="AlquilarF7.php">Fútbol 7</a></li>
+                            <li class="despegable"><a href="AlquilarF11.php">Fútbol 11</a></li>
+                            <li class="despegable"><a href="AlquilarPadel.php">Pádel</a></li>
+                            <li class="despegable"><a href="AlquilarTenis.php">Tenis</a></li>
                         </ul>
                     </li>
                     <li class="linea"><a href="Evento.php">Eventos</a></li>
@@ -56,6 +56,8 @@
                     $objeto = $resultado->fetch_array();
                     
                     //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
+                print("<div class=\"formulario-container\">");
+                print("<div class=\"formulario\">");
                     print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
                     <h2>Ajustes de usuario</h2>
                     <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
@@ -74,16 +76,18 @@
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>
                     ");
-
+                    print("</div>"); 
                     //Restablecer la contraseña
+                    print("<div class=\"formulario\">");
                     print(
                         "
                         <form action=\"\" method=\"POST\">
-                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Restablecer contraseña</button>
+                            <button id=\"boton_especial\" type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Restablecer contraseña</button>
                         </form>
                         "
                     );
-
+                    print("</div>"); 
+                print("</div>");  
                 }
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
