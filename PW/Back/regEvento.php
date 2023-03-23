@@ -2,11 +2,18 @@
 function registrarEvento($categoria, $descripcion,$fecha,$codpista){
     //Conexion con la base de datos
     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-
+    //Obtenemos el codigo del usuario
+    include_once './sesion.php'; 
+    $ses = new Sesion();
+    $email = $ses->retornarSesion();
+    $consulta1 = "SELECT codUsuario FROM usuario WHERE email='$email'";
+    $result = mysqli_query($conexion, $consulta1);
+    $data = $result->fetch_array();
+    $codUsuario = $data['0'];
     //Generacion de la consulta
-    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario) VALUES ('$fecha','$descripcion','$codpista', '$categoria')";
+    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario) VALUES ('$fecha','$descripcion','$codpista', '$categoria', '$codUsuario')";
     if(mysqli_query($conexion,$consulta)){
-        echo "Evento registrada.";
+        header("Location:http://localhost/PWSFW/PW/resources/views/MisReservas.php");
     }else{
         header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
