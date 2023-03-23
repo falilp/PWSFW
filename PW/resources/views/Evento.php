@@ -16,10 +16,10 @@
                 <ul>
                     <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
-                        <li class="linea">
+                    <li class="linea">
                         <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
-                            <li class="despegable"><a href="">Cuenta</a></li>
+                            <li class="despegable"><a href="Cuenta.php">Cuenta</a></li>
                             <li class="despegable"><a href="">Mis reservas</a></li>
                             <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                         </ul>

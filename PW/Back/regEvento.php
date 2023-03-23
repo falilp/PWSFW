@@ -8,7 +8,7 @@ function registrarEvento($categoria, $descripcion,$fecha,$codpista){
     if(mysqli_query($conexion,$consulta)){
         echo "Evento registrada.";
     }else{
-        echo "No se pudo registrar la Pista.";
+        header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
     mysqli_close($conexion);
 } 

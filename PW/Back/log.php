@@ -5,7 +5,7 @@ function iniciar($email,$contrasena,$sesion){
     if(strlen($contrasena) >= 8){
 
         $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-        $consulta = "SELECT * FROM usuario WHERE email = '$email'"; 
+        $consulta = "SELECT * FROM usuario WHERE email = '$email'";
         $resultado = $conexion->query($consulta);
         $objeto = $resultado->fetch_array();
 
@@ -17,7 +17,6 @@ function iniciar($email,$contrasena,$sesion){
             if($variableSesion == null || $variableSesion = ''){
                 die();
             } 
-
             header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php"); 
         }else{
                 header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
