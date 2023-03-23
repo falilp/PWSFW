@@ -59,7 +59,7 @@
                 <?php 
                     $fecha = $_POST['fecha'];
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");    
-                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0 AND tipoPista = 5";
+                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0 AND tipoPista = 3";
                     $resultado = $conexion->query($consulta);
                     $objeto = $resultado->fetch_all();
                 ?>
@@ -68,10 +68,14 @@
                         <h3>Disponibles: </h3>
                         <?php foreach($objeto as $pista):?>
                             <br>
-                            <label for="fecha">Pista: <?php print("$pista[0]");?></label>
+                            <label for="codep">Pista: <?php print("$pista[0]");?></label>
+                            <input type="hidden" id="codep" name="codep" value="<?php echo "$pista[0]";?>">
                             <br>
                             <label for="fecha"><?php print("$pista[5]");?>:</label>
-                            <input type="submit" value="Reservar" name="<?php $pista[0];?>">
+                            <input type="hidden" id="fecha" name="fecha" value="<?php echo "$pista[5]";?>">
+                            <?php if(isset($_SESSION['usuario'])):?>
+                            <input type="submit" value="Reservar" id="Reservar">
+                            <?php endif ?>
                         <?php endforeach; ?>
                     </form>
                 </section>
