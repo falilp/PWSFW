@@ -4,7 +4,7 @@ function registrarEvento($categoria, $descripcion,$fecha,$codpista){
     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
 
     //Generacion de la consulta
-    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria) VALUES ('$fecha','$descripcion','$codpista', '$categoria')";
+    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario) VALUES ('$fecha','$descripcion','$codpista', '$categoria')";
     if(mysqli_query($conexion,$consulta)){
         echo "Evento registrada.";
     }else{
