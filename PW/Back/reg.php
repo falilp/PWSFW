@@ -32,10 +32,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $apellidos= $_POST['apellidos'];
     $email = $_POST['email'];
     $telefono= $_POST['telefono'];
-    $contrasenna= $_POST['contrasena'];
+    $contrasena= $_POST['contrasena'];
 
     $sesion = new Sesion();
 
-    registrar($nombre, $apellidos, $email, $telefono, $contrasenna,$sesion);
+    registrar($nombre, $apellidos, $email, $telefono, $contrasena,$sesion);
 }
 ?>

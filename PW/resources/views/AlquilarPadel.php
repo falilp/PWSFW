@@ -4,27 +4,40 @@
         <title> Registro de usuario </title>
         <meta charset="utf-8"> 
         <link rel="icon" href="../img/iconoPagina.ico" >
-        <link rel="stylesheet" href="EstiloInsta.css">
+        <link rel="stylesheet" href="EstiloP.css">
     </head>
     <body>
         <header>
-            <h1 id="title">Alquiler Baloncesto</h1>
+            <h1 id="title">Alquiler Pádel</h1>
         </header>
         <nav>
                 <div id="menu">
                     <ul>
-                        <li class="linea"><a href="Login.html">Acceso</a></li>
-                        <li class="linea">
-                            <a href="Instalaciones.php">Instalaciones</a>
+                        <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
+                        <?php if(isset($_SESSION['usuario'])):?>
+                            <li class="linea">
+                            <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
                             <ul class="dropdowngtx">
-                                <li class="despegable"><a href="">Baloncesto</a></li>
-                                <li class="despegable"><a href="">F&uacutetbol Sala</a></li>
-                                <li class="despegable"><a href="">F&uacutetbol 7</a></li>
-                                <li class="despegable"><a href="">F&uacutetbol 11</a></li>
-                                <li class="despegable"><a href="">P&aacutedel</a></li>
-                                <li class="despegable"><a href="">Tenis</a></li>
+                                <li class="despegable"><a href="Cuenta.php">Cuenta</a></li>
+                                <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                             </ul>
                         </li>
+                        <?php else:?>
+                            <li class="linea"><a href="Login.html">Acceso</a></li>
+                        <?php endif ?>
+                        <li class="linea">
+                        <a href="Instalaciones.php">Instalaciones</a>
+                        <ul class="dropdowngtx">
+                            <li class="despegable"><a href="">Baloncesto</a></li>
+                            <li class="despegable"><a href="">Voleibol</a></li>
+                            <li class="despegable"><a href="">Fútbol Sala</a></li>
+                            <li class="despegable"><a href="">Fútbol 7</a></li>
+                            <li class="despegable"><a href="">Fútbol 11</a></li>
+                            <li class="despegable"><a href="">Pádel</a></li>
+                            <li class="despegable"><a href="">Tenis</a></li>
+                        </ul>
+                    </li>
                         <li class="linea"><a href="Evento.php">Eventos</a></li>
                         <li class="linea"><a href="Indice.php">Sobre Nosotros</a></li>
                     </ul>
@@ -34,7 +47,7 @@
             <?php if($_SERVER["REQUEST_METHOD"] != "POST"):?>
                 <section>
                     <form method="post" action="">
-                        <h3>Alquilar Pista Baloncesto: </h3>
+                        <h3>Alquilar Pista: </h3>
                         <br>
                         <label for="fecha">Selecciona fecha:</label>
                         <input type="date" name="fecha" id="fecha" required>
@@ -46,13 +59,13 @@
                 <?php 
                     $fecha = $_POST['fecha'];
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");    
-                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0";
+                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0 AND tipoPista = 5";
                     $resultado = $conexion->query($consulta);
                     $objeto = $resultado->fetch_all();
                 ?>
                 <section>
                     <form method="post" action="../../Back/regAlquiler.php">
-                        <h3>Pistas: </h3>
+                        <h3>Disponibles: </h3>
                         <?php foreach($objeto as $pista):?>
                             <br>
                             <label for="fecha">Pista: <?php print("$pista[0]");?></label>

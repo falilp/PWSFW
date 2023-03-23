@@ -59,7 +59,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Baloncesto</h5>
                     <p class="card-text">Pistas de Baloncesto al aire libre iluminadas y en Pabellón.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary">Reservar</a>
+                    <a href="AlquilarBaloncesto.php" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Fútbol Sala</h5>
                     <p class="card-text">Pistas de Futsal al aire libre iluminadas y en Pabellón.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary">Reservar</a>
+                    <a href="AlquilarFs.php" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Fútbol 7</h5>
                     <p class="card-text">Campos de cesped artificial al aire libre iluminados.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary">Reservar</a>
+                    <a href="AlquilarF7.php" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Fútbol 11</h5>
                     <p class="card-text">Campos de cesped artificial al aire libre iluminados.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary">Reservar</a>
+                    <a href="AlquilarF11.php" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Pádel</h5>
                     <p class="card-text">Pistas de pádel al aire libre iluminadas.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary">Reservar</a>
+                    <a href="AlquilarPadel.php" class="btn btn-primary">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Tenis</h5>
                     <p class="card-text">Pistas de tenis al aire libre iluminadas.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary boton">Reservar</a>
+                    <a href="AlquilarTenis.php" class="btn btn-primary boton">Reservar</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Voleibol</h5>
                     <p class="card-text">Pistas de Voleibol al aire libre iluminadas y en Pabellón.</p>
-                    <a href="Alquilarinstalaciones.php" class="btn btn-primary boton">Reservar</a>
+                    <a href="AlquilarVoleibol.php" class="btn btn-primary boton">Reservar</a>
                     </div>
                 </div>
             </div>
