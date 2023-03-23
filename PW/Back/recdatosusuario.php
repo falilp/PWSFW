@@ -9,22 +9,21 @@ function recuperar_datos($email)
 
     //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
     print("<h1>Mi cuenta</h1>");
-    print("<h2>Ajustes del perfil</h2>");
+    print("<h2>Ajustes</h2>");
     print("<form action=\"guardarcambiosusuario.php\" method=\"POST\">
             <p>
-                <label>Nombre actual:<strong>".$objeto['1']."</strong> </label><br>
-                <input type=\"text\" value=\"\" name=\"nombre\">
+                <label>Nombre:<strong>".$objeto['1']."</strong></label><br>
+                <input type=\"text\" name=\"nombre\">
             </p>
             <p>
-                <label>Apellidos actuales:<strong>".$objeto['2']."</strong></label><br>
-                <input type=\"text\"\" name=\"primerapellido\">
+                <label>Apellidos:<strong>".$objeto['2']."</strong></label><br>
+                <input type=\"text\" name=\"primerapellido\">
             </p>
             <p>
-                <label>Teléfono actual:<strong>".$objeto['5']."</strong></label><br>
-                <input type=\"numer\" name=\"telefono\" value=\"\">
+                <label>Teléfono:<strong>".$objeto['5']."</strong></label><br>
+                <input type=\"numer\" name=\"telefono\">
             </p>
-
-            <button type=\"submit\" name=\"cambios\" value=\"\" >Guardar cambios</button>
+            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
         </form>
 
     ");
