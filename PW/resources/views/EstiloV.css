@@ -1,0 +1,162 @@
+*{
+    margin: 0%;
+}
+
+body{
+    background-image: url("../img/vol.jpeg");
+    background-size: 105%;
+}
+
+
+#title{
+    background-color: #0a3143;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    top: -10px;
+    text-align: left;
+    margin-bottom: 0%;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+/*------------------------------------------------------------------*/
+
+/*MENU DE NAVEGACION*/
+#menu{
+    background-color: #276E90;
+}
+
+#menu ul{
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li.linea{
+    display: inline-block;
+}
+
+#menu ul li.linea a{
+    color: white;
+    display: block;
+    padding: 10px 85px;
+    text-decoration: none;
+}
+
+#menu ul li.linea a:hover{
+    background-color: #0A3143;
+}
+
+#menu ul li.despegable a{
+    display: block;
+    padding: 10px 91.5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdowngtx{
+    background-color: #276E90;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.dropdowngtx li{
+    display: block;
+}
+
+.dropdowngtx li a:hover{
+    background: #2e3d43;
+}
+
+#menu ul li:hover .dropdowngtx{
+    display: block;
+}
+
+/*-----------------------------------------------------------------------------*/
+form{
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 0 auto;
+    padding: 40px; /* Agregar espacio interno al formulario */
+    background-color: #f2f2f2; /* Color de fondo del formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    flex-direction: column;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+label{
+    display: block; /* Poner cada etiqueta en una línea separada */
+    margin-bottom: 5px; /* Agregar espacio debajo de cada etiqueta */
+    font-weight: bold; /* Hacer que la etiqueta sea más visible */
+    font-size: 20px;
+    color: #0A3143;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"]{
+  display: block; /* Poner cada entrada en una línea separada */
+  width: 100%; /* Hacer que la entrada ocupe todo el ancho disponible */
+  padding: 10px; /* Agregar espacio interno a la entrada */
+  margin-bottom: 10px; /* Agregar espacio debajo de cada entrada */
+  border: none; /* Eliminar el borde predeterminado de la entrada */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); /* Agregar sombra */
+}
+
+input[type="submit"] {
+  display: block; /* Poner el botón de enviar en una línea separada */
+  width: 100%; /* Hacer que el botón de enviar ocupe todo el ancho disponible */
+  padding: 10px; /* Agregar espacio interno al botón de enviar */
+  margin-top: 20px; /* Agregar espacio encima del botón de enviar */
+  background-color: #276E90; /* Color de fondo del botón de enviar */
+  color: #fff; /* Color de texto del botón de enviar */
+  border: none; /* Eliminar el borde predeterminado del botón de enviar */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón de enviar */
+}
+
+input[type="submit"]:hover {
+  background-color: #0A3143; /* Cambiar el color de fondo al pasar el mouse sobre el botón de enviar */
+}
+
+form h3
+{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0A3143;
+}
+
+/*-------------------------------------------------*/
+/*PIE DE PAGINA*/
+footer {
+    display: flex;
+    background-color: #276E90;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer p{
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Contacto{
+list-style: none;
+}
+
+.Columna{
+    width: 25%;
+}

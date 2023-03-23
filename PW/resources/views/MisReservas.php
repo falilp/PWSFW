@@ -30,6 +30,7 @@
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="">Baloncesto</a></li>
+                            <li class="despegable"><a href="">Voleibol</a></li>
                             <li class="despegable"><a href="">Fútbol Sala</a></li>
                             <li class="despegable"><a href="">Fútbol 7</a></li>
                             <li class="despegable"><a href="">Fútbol 11</a></li>
