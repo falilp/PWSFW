@@ -61,15 +61,15 @@
                     <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
                             <p>
                                 <label>Nombre:</label><br>
-                                <input type=\"text\" name=\"nombre\" value=".$objeto['1'].">
+                                <input type=\"text\" name=\"nombre\" value=".$objeto['1']." required>
                             </p>
                             <p>
                                 <label>Apellidos:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2'].">
+                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2']." required>
                             </p>
                             <p>
                                 <label>Teléfono:</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5'].">
+                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5']." required>
                             </p>
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>

@@ -58,26 +58,16 @@
                     $objeto = $resultado1->fetch_array();
                     $codUsuario=$objeto['0'];
                     
+
                     //Consulta para obtener los datos de las reservas
                     $consulta2 = "SELECT codPista,fecha_alquiler,precio FROM alquiler WHERE codUsuario='$codUsuario'";
-
                     //Realizamos la nueva consulta
                     $resultado2 = mysqli_query($conexion, $consulta2);
-
                     if($resultado2)
                     {
                         $reservas = $resultado2->fetch_all();
-                        if(empty($reservas)){
-                            print("
-                                <div class=\"texto_error\">
-                                    <p>No tiene ninguna reserva<p>
-                                    <p>Ahora messi esta triste, no seas malo</p>
-                                </div>
-                                <img id=\"messi_triste\" src=\"https://www.elnacional.cat/uploads/s1/16/80/91/73/messi-triste-psg-efe.jpeg\">
-                            ");
-                        }else{
-                            
-                            //Mostramos en una tabla las reservas
+                            //Mostramos en una tabla las reservas de PISTAS
+                            print("<h2>Reserva de pistas</h2>");
                             print("
                             <table>
                                 <thead>
@@ -92,8 +82,12 @@
                                 ");
                                     foreach($reservas as $fila)
                                     {
+                                        //Realizamos la busqueda para devolver el tipo de pista que es
+                                        $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$fila['0']."";
+                                        $result = mysqli_query($conexion, $consulta_mensaje);
+                                        $mensaje = $result->fetch_array();
                                         echo "<tr>";
-                                        echo "<td>".$fila['0']."</td>";
+                                        echo "<td>".$mensaje['0']."</td>";
                                         echo "<td>".$fila['1']."</td>";
                                         echo "<td>".$fila['2']."</td>";
                                         echo "</tr>";
@@ -102,7 +96,47 @@
                                 </tbody>
                             </table>
                             ");
+                        }else{
+                            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
                         }
+
+                        //Otra tabla para la reservas de eventos
+                        $consulta3 = "SELECT * FROM evento WHERE codUsuario='$codUsuario'";
+                        $resultado3 = mysqli_query($conexion,$consulta3);
+                        if($resultado3){
+                            $eventos=$resultado3->fetch_all();
+                                //Mostramos los eventos
+                                //de codigo de pista a mensaje
+                                    print("<h2>Eventos</h2>");
+                                    print("
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                            <th>Pista</th>
+                                            <th>Fecha del Evento</th>
+                                            <th>Descripcion</th>
+                                    
+                                            <th>categoria</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        ");
+                                            foreach($eventos as $fila)
+                                            {
+                                                $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$fila['0']."";
+                                                $result = mysqli_query($conexion, $consulta_mensaje);
+                                                $mensaje = $result->fetch_array();
+                                                echo "<tr>";
+                                                    echo "<td>".$mensaje['0']."</td>";
+                                                    echo "<td>".$fila['1']."</td>";
+                                                    echo "<td>".$fila['2']."</td>";
+                                                    echo "<td>".$fila['4']."</td>";
+                                                echo "</tr>";
+                                            }
+                                    print("
+                                        </tbody>
+                                    </table>
+                                    ");
                     }else{
                     header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
                 }
