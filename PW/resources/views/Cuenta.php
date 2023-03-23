@@ -75,7 +75,14 @@
                     ");
 
                     //Restablecer la contraseña
-                    
+                    print(
+                        "
+                        <form action=\"\" method=\"POST\">
+                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Restablecer contraseña</button>
+                        </form>
+                        "
+                    );
+
                 }
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
