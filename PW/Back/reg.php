@@ -9,9 +9,6 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena,$sesion){
         $consulta = "INSERT INTO usuario (nombre,apellidos,email,telefono,pass) VALUES ('$nombre','$apellidos','$email','$telefono','$pass')";
 
         if(mysqli_query($conexion,$consulta)){
-<<<<<<< HEAD
-            header("Location:http://localhost/PWSFW/PW/resources/views/Login.html");
-=======
             $sesion->usuarioActual($email);
             $variableSesion = $sesion->retornarSesion();
 
@@ -19,8 +16,7 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena,$sesion){
                 die();
             } 
 
-            header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php"); 
->>>>>>> e204a93c2449927cf9404c76b59299994bb1b62f
+            header("Location:http://localhost/PWSFW/PW/resources/views/Login.php"); 
         }else{
             header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
         }
