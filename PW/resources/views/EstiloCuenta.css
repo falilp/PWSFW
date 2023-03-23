@@ -70,7 +70,7 @@ body{
     display: block;
 }
 
-main img{
+#img_perfil{
     margin-left: 45%;
     align-items: center;
     border-radius: 10px;
@@ -131,7 +131,7 @@ button:hover {
 .PiePagina{
     display: flex;
     background-color: #276E90;
-    margin-top: 0px;
+    margin-top: 50%;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -149,4 +149,60 @@ list-style: none;
 
 .Columna{
     width: 25%;
+}
+
+/*******/
+
+.texto_error{
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    font-weight: bold;
+    background-image: url("https://www.elnacional.cat/uploads/s1/16/80/91/73/messi-triste-psg-efe.jpeg");
+}
+
+#messi_triste{
+    height: 100%;
+    width: 100%;
+}
+
+/*Estilo TABLA*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    font-size: 20px;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td:last-child {
+    text-align: center;
+}
+
+td:last-child a {
+    color: red;
+    text-decoration: none;
+}
+
+td:last-child a:hover {
+    text-decoration: underline;
 }

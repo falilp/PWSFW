@@ -50,25 +50,62 @@
                 {
                     //Conexion a la base de datos y creacion de la consulta
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-                    $consulta = "SELECT * FROM usuario WHERE email = '$email'";
-                    $resultado = $conexion->query($consulta);
-                    $objeto = $resultado->fetch_array();
+
+                    //Consulta para obtener el codUsuario
+                    $consulta1 = "SELECT * FROM usuario WHERE email = '$email'";
+                    $resultado1 = $conexion->query($consulta1);
+                    $objeto = $resultado1->fetch_array();
                     $codUsuario=$objeto['0'];
                     
-                    //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
-                    $consulta = "SELECT * FROM alquiler WHERE codUsuario = $codUsuario";
+                    //Consulta para obtener los datos de las reservas
+                    $consulta2 = "SELECT codPista,fecha_alquiler,precio FROM alquiler WHERE codUsuario='$codUsuario'";
 
                     //Realizamos la nueva consulta
-                    $resultado = mysqli_query($conexion, $consulta);
-                    if(!$resultado){
-                        echo "No tiene ninguna reserva";
+                    $resultado2 = mysqli_query($conexion, $consulta2);
+
+                    if($resultado2)
+                    {
+                        $reservas = $resultado2->fetch_all();
+                        if(empty($reservas)){
+                            print("
+                                <div class=\"texto_error\">
+                                    <p>No tiene ninguna reserva<p>
+                                    <p>Ahora messi esta triste, no seas malo</p>
+                                </div>
+                                <img id=\"messi_triste\" src=\"https://www.elnacional.cat/uploads/s1/16/80/91/73/messi-triste-psg-efe.jpeg\">
+                            ");
+                        }else{
+                            
+                            //Mostramos en una tabla las reservas
+                            print("
+                            <table>
+                                <thead>
+                                    <tr>
+                                    <th>Pista</th>
+                                    <th>Fecha</th>
+                                    <th>Precio</th>
+                                    <th>Cancelar Alquiler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                ");
+                                    foreach($reservas as $fila)
+                                    {
+                                        echo "<tr>";
+                                        echo "<td>".$fila['0']."</td>";
+                                        echo "<td>".$fila['1']."</td>";
+                                        echo "<td>".$fila['2']."</td>";
+                                        echo "</tr>";
+                                    }
+                            print("
+                                </tbody>
+                            </table>
+                            ");
+                        }
                     }else{
-                        $reservas = $resultado->fetch_array();
-                        //Mostramos en una tabla las reservas
-                        echo implode($reservas);
-                    }
-                    
+                    header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
                 }
+            }
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
                 //$ses = new Sesion();

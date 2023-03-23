@@ -57,7 +57,7 @@
                     //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
                     print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
                     <h2>Ajustes de usuario</h2>
-                    <img src=\"../img/logoUSUARIOPERFIL.jpg\">
+                    <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
                             <p>
                                 <label>Nombre:</label><br>
                                 <input type=\"text\" name=\"nombre\" value=".$objeto['1'].">
