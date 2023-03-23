@@ -25,7 +25,6 @@ function recuperar_datos($email)
             </p>
             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
         </form>
-
     ");
 }
 
@@ -37,4 +36,5 @@ if(isset($_SESSION['usuario'])){
 }else{
     header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
 }
+
 ?>

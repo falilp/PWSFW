@@ -1,0 +1,152 @@
+*{
+    margin: 0%;
+    overflow-x: hidden;
+    font-family:'Times New Roman', Times, serif;
+}
+
+header h1{
+    background-color: #0a3143;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    top: -10px;
+    text-align: left;
+}
+
+body{
+    background-color: #CECFC9;
+}
+/*MENU DE NAVEGACION*/
+#menu{
+    background-color: #276E90;
+}
+
+#menu ul{
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li.linea{
+    display: inline-block;
+}
+
+#menu ul li.linea a{
+    color: white;
+    display: block;
+    padding: 10px 85px;
+    text-decoration: none;
+}
+
+#menu ul li.linea a:hover{
+    background-color: #0A3143;
+}
+
+#menu ul li.despegable a{
+    display: block;
+    padding: 10px 91.5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdowngtx{
+    background-color: #276E90;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.dropdowngtx li{
+    display: block;
+}
+
+.dropdowngtx li a:hover{
+    background: #2e3d43;
+}
+
+#menu ul li:hover .dropdowngtx{
+    display: block;
+}
+
+main img{
+    margin-left: 45%;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 0%;
+    height: 10%;
+    width: 10%;
+}
+
+
+/*FORMULARIO*/
+body h2{
+    font-weight: bold;
+    color: #0A3143;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+form {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+label {
+    font-weight: bold;
+    color: #0A3143;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #276E90;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0A3143;
+}
+
+/*PIE DE PAGINA*/
+.PiePagina{
+    display: flex;
+    background-color: #276E90;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.PiePagina p{
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.Contacto{
+list-style: none;
+}
+
+.Columna{
+    width: 25%;
+}
