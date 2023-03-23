@@ -1,7 +1,18 @@
 <?php
-function registrarAlquiler($codigoUsu, $fechaA, $fechaR, $precio, $descuento){
+include_once 'sesion.php';
+function registrarAlquiler($codigoPista,$fecha,$sesion){
+    $email = $sesion->retornarSesion();
+
     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-    $consulta = "INSERT INTO alquiler (codUsuario,fecha_alquiler,fecha_reserva,precio,Descuento) VALUES ('$codigoUsu','$fechaA','$fechaR','$precio','$descuento')";
+    $consultaU = "SELECT * FROM usuario WHERE email = '$email'";
+    $resultado = $conexion->query($consultaU);
+    $usuario = $resultado->fetch_array();
+
+    $consultaP = "SELECT * FROM usuario WHERE codPista = '$codigoPista'";
+    $resultado = $conexion->query($consultaP);
+    $pista = $resultado->fetch_array();
+
+    $consulta = "INSERT INTO alquiler (codPista,codUsuario,fecha_alquiler,precio,Descuento) VALUES ('$codigoPista','$usuario[0]','$fecha','$pista[2]','0')";
     
     if(mysqli_query($conexion,$consulta)){
         header("Location:http://localhost/PWSFW/PW/resources/views/Indice.php"); 
@@ -13,12 +24,10 @@ function registrarAlquiler($codigoUsu, $fechaA, $fechaR, $precio, $descuento){
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $codigoUsu = $_POST['codUsuario'];
-    $fechaA= $_POST['fechaA'];
-    $fechaR = $_POST['fechaR'];
-    $precio= $_POST['precio'];
-    $descuento= $_POST['descuento'];
+    $codigoPista = $_POST["codep"];
+    $codigoPista = $_POST["fecha"];
+    $sesion = new Sesion();
 
-    registrarAlquiler($codigoUsu, $fechaA, $fechaR, $precio, $descuento);
+    registrarAlquiler($codigoPista,$fecha,$sesion);
 }
 ?>

@@ -52,7 +52,7 @@
                                 name="slide" aria-hidden="true" hidden="" checked="checked">
                         <div class="slide-item">
                             <img src="../img/niñosCumpleaños.jpg">
-                            <label class="slide-text">¡Celebra tu cumpleaños con nostros!
+                            <label class="slide-text">¡Celebra tu cumpleaños con nosotros!
                             </label>
                         </div>
                         <input class="slide-open" type="radio" id="slide-2" 
@@ -66,7 +66,7 @@
                                 name="slide" aria-hidden="true" hidden="">
                         <div class="slide-item">
                             <img src="https://fondosmil.com/fondo/5803.jpg">
-                            <label class="slide-text">Crea tu propio evento y pasatelo en grande con tus amigos
+                            <label class="slide-text">Crea tu propio evento y pásatelo en grande con tus amigos
                             </label>
                         </div>
                         <label for="slide-3" class="slide-control prev control-1">‹</label>
@@ -89,6 +89,7 @@
                 
             </article>   
         </main> 
+        <?php if(isset($_SESSION['usuario'])):?>
         <section class="form_1_subtitle">
             <h2>Haz tu Reserva</h2>
             <p id="p_form">
@@ -125,6 +126,12 @@
                 </p>
             </form>
         </section>
+        <?php else:?>
+            <p id="p_form">
+                Es necesario estar registrado para poder realizar un evento.
+            </p>
+            <p id="p_form"><a class="linea"><a href="Login.html">Iniciar Sesión</a></p>
+        <?php endif ?>
     </body>
 
     <footer class="PiePagina">
