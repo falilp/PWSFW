@@ -19,7 +19,7 @@
                         <a href="Instalaciones.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="Cuenta.php">Cuenta</a></li>
-                            <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
+                            <li class="despegable"><a href="">Mis reservas</a></li>
                             <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                         </ul>
                     </li>
@@ -53,36 +53,21 @@
                     $consulta = "SELECT * FROM usuario WHERE email = '$email'";
                     $resultado = $conexion->query($consulta);
                     $objeto = $resultado->fetch_array();
+                    $codUsuario=$objeto['0'];
                     
                     //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
-                    print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
-                    <h2>Ajustes de usuario</h2>
-                    <img src=\"../img/logoUSUARIOPERFIL.jpg\">
-                            <p>
-                                <label>Nombre:</label><br>
-                                <input type=\"text\" name=\"nombre\" value=".$objeto['1'].">
-                            </p>
-                            <p>
-                                <label>Apellidos:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2'].">
-                            </p>
-                            <p>
-                                <label>Teléfono:</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5'].">
-                            </p>
-                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
-                        </form>
-                    ");
+                    $consulta = "SELECT * FROM alquiler WHERE codUsuario = $codUsuario";
 
-                    //Restablecer la contraseña
-                    print(
-                        "
-                        <form action=\"\" method=\"POST\">
-                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Restablecer contraseña</button>
-                        </form>
-                        "
-                    );
-
+                    //Realizamos la nueva consulta
+                    $resultado = mysqli_query($conexion, $consulta);
+                    if(!$resultado){
+                        echo "No tiene ninguna reserva";
+                    }else{
+                        $reservas = $resultado->fetch_array();
+                        //Mostramos en una tabla las reservas
+                        echo implode($reservas);
+                    }
+                    
                 }
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
