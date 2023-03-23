@@ -14,7 +14,7 @@
     </head>
     
     <body class="Cuerpo">
-        <h1 id="cuerpo_h1">¡Bienvenido a KMB!
+        <h1 id="cuerpo_h1"> Nosotros
         </h1>
         <nav>
             <div id="menu">
