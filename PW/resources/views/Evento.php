@@ -199,7 +199,7 @@
                 <label>Introduce descripción: </label>
                 <input type="text" id="descrip" name="descripcion"> 
 
-                <?php echo "<button type=\"submit\" name=\"pista\" value=\"$codPista\">Reservar</button>";?>
+                <?php echo "<button type=\"submit\" name=\"pista\" value=\"$tipoPista\">Reservar</button>";?>
             </div>
         <?php endif ?>
         </form>
@@ -213,10 +213,7 @@
     <?php endif ?>
         <section>
             <!--Eventos creados por el administrador del sistema-->
-                <h2>Nuestros eventos: </h2>
-                <?php
-                
-                ?>
+                <!--<h2>Nuestros eventos: </h2>-->
         </section>
     </body>
 

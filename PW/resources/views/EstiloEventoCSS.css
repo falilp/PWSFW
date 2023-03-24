@@ -299,7 +299,8 @@ form input[type="text"]
     color:  grey;
 }
 
-form button
+form button,
+form input
 {
     width: 100%;
     padding: 20px;
@@ -331,7 +332,8 @@ form button
     color: #006699;
 }
 
-  /* Estilos para los mensajes de error */
+
+ /* Estilos para los mensajes de error */
 .form_container span.error {
     color: red;
     font-size: 14px;
