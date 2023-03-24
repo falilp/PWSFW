@@ -16,7 +16,7 @@ function registrar($nombre,$apellidos,$email,$telefono,$contrasena,$sesion){
                 die();
             } 
 
-            header("Location:http://localhost/PWSFW/PW/resources/views/Login.php"); 
+            header("Location:http://localhost/PWSFW/PW/resources/views/Login.html"); 
         }else{
             header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
         }

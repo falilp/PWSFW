@@ -109,9 +109,67 @@
                     </select>
                     <br>
 
-                    <label>Selecciona la Fecha: </label>
+
+                <?php
+                    //Conexion con la base de datos
+                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+
+                    //Obtenemos la fecha actual
+                        $fechaActual = date('Y-m-d');
+                        $diaActual = date('d', strtotime($fechaActual));
+                        $mesActual = date('m', strtotime($fechaActual));
+                        $anioActual = date('Y', strtotime($fechaActual));
+                
+                    //Consultamos con eventos
+                        $consultaEvento = "SELECT DAY(FechaEvento) FROM evento WHERE MONTH(FechaEvento) = '$mesActual' AND YEAR(FechaEvento) = $anioActual AND DAY(FechaEvento) >= $diaActual";
+                        $resultadoEvento = mysqli_query($conexion, $consultaEvento);
+                
+                        $consultaPistas = "SELECT DAY(fecha_alquiler) FROM alquiler WHERE MONTH(fecha_alquiler) = '$mesActual' AND YEAR(fecha_alquiler) = $anioActual AND DAY(fecha_alquiler) >= $diaActual";
+                        $resultadoPistas = mysqli_query($conexion, $consultaPistas);
+                
+                        if($resultadoPistas && $resultadoEvento)
+                        {
+                            $fechasOcupadasEventos = $resultadoEvento->fetch_all();
+                            $fechasOcupadasPistas = $resultadoPistas->fetch_all();
+
+                            echo "<label>Selecciona Fecha</label>";
+                            echo "<select id=\"select\" name=\"fecha\">";
+                            while($diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
+                                $disp = true;
+                                //No hay ningun evento el mismo dia
+                                foreach($fechasOcupadasEventos as $diaEvento)
+                                {
+                                    if($diaActual == $diaEvento['0'] && $disp)
+                                    {
+                                        $disp = false;
+                                    }
+                                }
+                                //La pista esta disponible durante todo el dia
+                                if($disp)
+                                {
+                                    foreach($fechasOcupadasPistas as $diaPista)
+                                    {
+                                        if($diaActual == $diaPista['0'] && $disp)
+                                        {
+                                            $disp = false;
+                                        }
+                                    }
+                                }
+                                if($disp)
+                                {
+                                    echo "<option value=\"$fechaActual\">$fechaActual</option>";
+                                }
+                                $diaActual++;
+                                $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
+                            }
+                            echo "</select>";
+                            
+                        }
+                ?>
+
+                    <!--<label>Selecciona la Fecha: </label>
                     <input type="date" id="fecha" name="fecha">
-                    <br>
+                    <br>-->
 
                     <label>Selecciona Pista: </label>
                     <select id="select" name="pista">
@@ -137,6 +195,13 @@
             </p>
             <p id="p_form"><a class="linea"><a href="Login.html">Iniciar Sesión</a></p>
         <?php endif ?>
+        <section>
+            <!--Eventos creados por el administrador del sistema-->
+                <h2>Nuestros eventos: </h2>
+                <?php
+                
+                ?>
+        </section>
     </body>
 
     <footer class="PiePagina">
