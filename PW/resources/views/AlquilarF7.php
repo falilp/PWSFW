@@ -55,7 +55,7 @@
                         <h3>Alquilar Pista: </h3>
                         <br>
                         <label for="fecha">Selecciona fecha:</label>
-                        <select name="fecha" id="fecha">
+                        <select id="fecha" name="fecha">
                             <?php
                                 $fechaActual = date('Y-m-d');
 
