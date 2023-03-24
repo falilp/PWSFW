@@ -104,13 +104,13 @@
                 <form method="post" action="">
                         <label>Selecciona Pista: </label>
                         <select id="select" name="pista">
-                            <option value="1">Futbol Sala</option>
-                            <option value="2">Tenis</option>
-                            <option value="3">Baloncesto</option>
-                            <option value="4">Voleibol</option>
-                            <option value="5">Padel</option>
-                            <option value="6">Futbol 7</option>
-                            <option value="7">Futbol 11</option>
+                            <option value="3">Futbol Sala</option>
+                            <option value="4">Tenis</option>
+                            <option value="5">Baloncesto</option>
+                            <option value="6">Voleibol</option>
+                            <option value="7">Padel</option>
+                            <option value="2">Futbol 7</option>
+                            <option value="1">Futbol 11</option>
                         </select>
                     <input type="submit" value="Mirar dias Disponibles">
                 </form>
@@ -118,13 +118,13 @@
             <form action="../../Back/regEvento.php" method="POST">
                 <?php
                     //Rescatar codigo de pista
-                    $codPista = $_POST['pista'];
+                    $tipoPista = $_POST['pista'];
 
                     //Conexion con la base de datos
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
 
                     //De codPista a mensaje
-                    $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$codPista."";
+                    $consulta_mensaje= "SELECT mensaje FROM pista WHERE tipoPista=".$tipoPista."";
                     $result = mysqli_query($conexion, $consulta_mensaje);
                     $mensaje = $result->fetch_array();
                     $mensaje = $mensaje['0'];

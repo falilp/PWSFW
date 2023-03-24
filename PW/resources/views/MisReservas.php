@@ -126,8 +126,8 @@
                                             <th>Pista</th>
                                             <th>Fecha del Evento</th>
                                             <th>Descripcion</th>
-                                    
                                             <th>categoria</th>
+                                            <th>Cancelar Evento</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,6 +143,12 @@
                                                     echo "<td>".$fila['1']."</td>";
                                                     echo "<td>".$fila['2']."</td>";
                                                     echo "<td>".$fila['4']."</td>";
+                                                    print("<form method=\"POST\" action=\"../../Back/deleteEvento.php\">           
+                                                            <input type=\"hidden\" name=\"cancelar\" id=\"cancelar\" value=".$fila[3].">
+                                                            <td>
+                                                                <input type=\"submit\" value=\"cancelar\">
+                                                            </td>
+                                                        </form>");
                                                 echo "</tr>";
                                             }
                                     print("
