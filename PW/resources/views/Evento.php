@@ -213,10 +213,7 @@
     <?php endif ?>
         <section>
             <!--Eventos creados por el administrador del sistema-->
-                <h2>Nuestros eventos: </h2>
-                <?php
-                
-                ?>
+                <!--<h2>Nuestros eventos: </h2>-->
         </section>
     </body>
 
