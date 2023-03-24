@@ -94,49 +94,126 @@
                 
             </article>   
         </main> 
-        <?php if(isset($_SESSION['usuario'])):?>
+    <?php if(isset($_SESSION['usuario'])):?>
         <section class="form_1_subtitle">
             <h2>Haz tu Reserva</h2>
             <p id="p_form">
                 ¡Disfruta en familia o con amigos de los eventos personalizados de KMB!
-            </p>
+            </p>       
+        <?php if($_SERVER["REQUEST_METHOD"] != "POST"):?>
+                <form method="post" action="">
+                        <label>Selecciona Pista: </label>
+                        <select id="select" name="pista">
+                            <option value="1">Futbol Sala</option>
+                            <option value="2">Tenis</option>
+                            <option value="3">Baloncesto</option>
+                            <option value="4">Voleibol</option>
+                            <option value="5">Padel</option>
+                            <option value="6">Futbol 7</option>
+                            <option value="7">Futbol 11</option>
+                        </select>
+                    <input type="submit" value="Mirar dias Disponibles">
+                </form>
+        <?php else: ?>
             <form action="../../Back/regEvento.php" method="POST">
-                <p>
-                    <label>Categoría: </label>
-                    <select id="select" name="categoria">
-                        <option>Cumpleaños</option>
-                        <option>Torneo</option>
-                    </select>
-                    <br>
+                <?php
+                    //Rescatar codigo de pista
+                    $codPista = $_POST['pista'];
 
-                    <label>Selecciona la Fecha: </label>
-                    <input type="date" id="fecha" name="fecha">
-                    <br>
+                    //Conexion con la base de datos
+                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
 
-                    <label>Selecciona Pista: </label>
-                    <select id="select" name="pista">
-                        <option value="1">Futbol Sala</option>
-                        <option value="2">Tenis</option>
-                        <option value="3">Baloncesto</option>
-                        <option value="4">Voleibol</option>
-                        <option value="5">Padel</option>
-                        <option value="6">Futbol 7</option>
-                        <option value="7">Futbol 11</option>
-                    </select>
+                    //De codPista a mensaje
+                    $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$codPista."";
+                    $result = mysqli_query($conexion, $consulta_mensaje);
+                    $mensaje = $result->fetch_array();
+                    $mensaje = $mensaje['0'];
+                    print("<h2>Pista Seleccionada: $mensaje</h2>");
+                    
+                    print("
+                        <p>
+                        <label>Categoría: </label>
+                        <select id=\"select\" name=\"categoria\">
+                            <option>Cumpleaños</option>
+                            <option>Torneo</option>
+                        </select>
+                        <br>"
+                    );
 
-                    <label>Introduce descripción: </label>
-                    <input type="text" id="descrip" name="descripcion"> 
+                    //Obtenemos la fecha actual
+                        $fechaActual = date('Y-m-d');
+                        $diaActual = date('d', strtotime($fechaActual));
+                        $mesActual = date('m', strtotime($fechaActual));
+                        $anioActual = date('Y', strtotime($fechaActual));
+                
+                    //Consultamos con eventos
+                        $consultaEvento = "SELECT DAY(FechaEvento),codPista FROM evento WHERE MONTH(FechaEvento) = '$mesActual' AND YEAR(FechaEvento) = $anioActual AND DAY(FechaEvento) >= $diaActual";
+                        $resultadoEvento = mysqli_query($conexion, $consultaEvento);
+                
+                        $consultaPistas = "SELECT DAY(fecha_alquiler),codPista FROM alquiler WHERE MONTH(fecha_alquiler) = '$mesActual' AND YEAR(fecha_alquiler) = $anioActual AND DAY(fecha_alquiler) >= $diaActual";
+                        $resultadoPistas = mysqli_query($conexion, $consultaPistas);
+                
+                        if($resultadoPistas && $resultadoEvento)
+                        {
+                            $fechasOcupadasEventos = $resultadoEvento->fetch_all();
+                            $fechasOcupadasPistas = $resultadoPistas->fetch_all();
 
-                    <button type="submit" name="reserva">Reservar</button>
+                            echo "<label>Selecciona Fecha</label>";
+                            echo "<select id=\"select\" name=\"fecha\">";
+                            while($diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
+                                $disp = true;
+                                //No hay ningun evento el mismo dia
+                                foreach($fechasOcupadasEventos as $diaEvento)
+                                {
+                                    if($diaActual == $diaEvento['0'] && $disp && $codPista == $diaEvento['1'])
+                                    {
+                                        $disp = false;
+                                    }
+                                }
+                                //La pista esta disponible durante todo el dia
+                                if($disp)
+                                {
+                                    foreach($fechasOcupadasPistas as $diaPista)
+                                    {
+                                        if($diaActual == $diaPista['0'] && $disp && $codPista == $diaPista['1'])
+                                        {
+                                            $disp = false;
+                                        }
+                                    }
+                                }
+                                if($disp)
+                                {
+                                    echo "<option value=\"$fechaActual\">$fechaActual</option>";
+                                }
+                                $diaActual++;
+                                $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
+                            }
+                            echo "</select>";
+                            
+                        }
+                ?>
+                <label>Introduce descripción: </label>
+                <input type="text" id="descrip" name="descripcion"> 
+
+                <?php echo "<button type=\"submit\" name=\"pista\" value=\"$codPista\">Reservar</button>";?>
                 </p>
-            </form>
-        </section>
-        <?php else:?>
-            <p id="p_form">
-                Es necesario estar registrado para poder realizar un evento.
-            </p>
-            <p id="p_form"><a class="linea"><a href="Login.html">Iniciar Sesión</a></p>
         <?php endif ?>
+        </form>
+        
+        </section>
+    <?php else:?>
+        <p id="p_form">
+            Es necesario estar registrado para poder realizar un evento.
+        </p>
+            <p id="p_form"><a class="linea"><a href="Login.html">Iniciar Sesión</a></p>
+    <?php endif ?>
+        <section>
+            <!--Eventos creados por el administrador del sistema-->
+                <h2>Nuestros eventos: </h2>
+                <?php
+                
+                ?>
+        </section>
     </body>
 
     <footer class="PiePagina">

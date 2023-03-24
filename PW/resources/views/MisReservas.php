@@ -62,9 +62,8 @@
                     $consulta1 = "SELECT * FROM usuario WHERE email = '$email'";
                     $resultado1 = $conexion->query($consulta1);
                     $objeto = $resultado1->fetch_array();
-                    $codUsuario=$objeto['0'];
                     
-
+                    $codUsuario=$objeto['0'];
                     //Consulta para obtener los datos de las reservas
                     $consulta2 = "SELECT codPista,fecha_alquiler,precio FROM alquiler WHERE codUsuario='$codUsuario'";
                     //Realizamos la nueva consulta
@@ -138,6 +137,7 @@
                                                 $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$fila['0']."";
                                                 $result = mysqli_query($conexion, $consulta_mensaje);
                                                 $mensaje = $result->fetch_array();
+                                                
                                                 echo "<tr>";
                                                     echo "<td>".$mensaje['0']."</td>";
                                                     echo "<td>".$fila['1']."</td>";
