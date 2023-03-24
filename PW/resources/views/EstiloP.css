@@ -3,8 +3,8 @@
 }
 
 body{
-    background-image: url("../img/pad.jpg");
-    background-size: 105%;
+    background-image: url("https://pbs.twimg.com/media/FqKaqkKXwAAuQFN?format=jpg&name=4096x4096");
+    background-size: 100%;
 }
 
 
@@ -80,7 +80,7 @@ body{
 /*-----------------------------------------------------------------------------*/
 form{
     max-width: 500px; /* Ancho máximo del formulario */
-    margin: 0 auto;
+    margin-left: 1rem;
     padding: 40px; /* Agregar espacio interno al formulario */
     background-color: #f2f2f2; /* Color de fondo del formulario */
     border-radius: 10px; /* Bordes redondeados */
@@ -141,7 +141,7 @@ form h3
 footer {
     display: flex;
     background-color: #276E90;
-    margin-top: 20px;
+    margin-top: 55px;
     justify-content: center;
     align-items: center;
     padding: 20px;
