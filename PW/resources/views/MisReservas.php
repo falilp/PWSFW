@@ -95,6 +95,12 @@
                                         echo "<td>".$mensaje['0']."</td>";
                                         echo "<td>".$fila['1']."</td>";
                                         echo "<td>".$fila['2']."</td>";
+                                        print("<form method=\"POST\" action=\"../../Back/deleteAlquiler.php\">           
+                                                    <input type=\"hidden\" name=\"cancelar\" id=\"cancelar\" value=".$fila[0].">
+                                                    <td>
+                                                        <input type=\"submit\" value=\"cancelar\">
+                                                    </td>
+                                                </form>");
                                         echo "</tr>";
                                     }
                             print("
