@@ -74,7 +74,7 @@
                                     }else{
                                         $diaSemana++;
                                     }
-
+                                    
                                     $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
                                 }
                             ?>
