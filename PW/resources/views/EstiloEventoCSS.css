@@ -299,7 +299,7 @@ form input[type="text"]
     color:  grey;
 }
 
-form input[type="submit"]
+form button
 {
     width: 100%;
     padding: 20px;
@@ -315,24 +315,24 @@ form input[type="submit"]
 
 
 /* Estilos específicos para cada campo */
-form input[type="select"] {
+.form_container input[type="select"] {
     background-color: #fff;
     color: #006699;
 }
 
-form input[type="date"] {
+.form_container input[type="date"] {
     background-color: #fff;
     color: #006699;
 }
 
-form input[type="text"]{
+.form_container input[type="text"]{
     height: 100px;
     background-color: #fff;
     color: #006699;
 }
 
   /* Estilos para los mensajes de error */
-form span.error {
+.form_container span.error {
     color: red;
     font-size: 14px;
     margin-top: -15px;
