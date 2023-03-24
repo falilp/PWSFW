@@ -55,7 +55,30 @@
                         <h3>Alquilar Pista: </h3>
                         <br>
                         <label for="fecha">Selecciona fecha:</label>
-                        <input type="date" name="fecha" id="fecha" required>
+                        <select name="fecha" id="fecha">
+                            <?php
+                                $fechaActual = date('Y-m-d');
+
+                                $diaActual = date('d', strtotime($fechaActual));
+                                $mesActual = date('m', strtotime($fechaActual));
+                                $anioActual = date('Y', strtotime($fechaActual));
+
+                                $diaSemana = date('w', strtotime($fechaActual)); // Obtenemos el número correspondiente al día de la semana (0-6)
+                                while($diaSemana != 1 && $diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
+                                    echo "<option value=\"$fechaActual\">$fechaActual</option>";
+                                    //Incrementamos el dia
+                                    $diaActual++;
+                                    if($diaSemana == 6)
+                                    {
+                                        $diaSemana = 0;
+                                    }else{
+                                        $diaSemana++;
+                                    }
+
+                                    $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
+                                }
+                            ?>
+                        </select>
                         <br>
                         <input type="submit" value="Enviar">
                     </form>
