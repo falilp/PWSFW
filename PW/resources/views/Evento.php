@@ -99,8 +99,10 @@
             <h2>Haz tu Reserva</h2>
             <p id="p_form">
                 ¡Disfruta en familia o con amigos de los eventos personalizados de KMB!
-            </p>       
+            </p>   
+        </section> 
         <?php if($_SERVER["REQUEST_METHOD"] != "POST"):?>
+            <div class="form_container">
                 <form method="post" action="">
                         <label>Selecciona Pista: </label>
                         <select id="select" name="pista">
@@ -114,7 +116,9 @@
                         </select>
                     <input type="submit" value="Mirar dias Disponibles">
                 </form>
+        </div>
         <?php else: ?>
+        <div class="form_container">
             <form action="../../Back/regEvento.php" method="POST">
                 <?php
                     //Rescatar codigo de pista
@@ -128,7 +132,7 @@
                     $result = mysqli_query($conexion, $consulta_mensaje);
                     $mensaje = $result->fetch_array();
                     $mensaje = $mensaje['0'];
-                    print("<h2>Pista Seleccionada: $mensaje</h2>");
+                    print("<label>Pista Seleccionada: $mensaje</label>");
                     
                     print("
                         <p>
@@ -196,7 +200,7 @@
                 <input type="text" id="descrip" name="descripcion"> 
 
                 <?php echo "<button type=\"submit\" name=\"pista\" value=\"$codPista\">Reservar</button>";?>
-                </p>
+            </div>
         <?php endif ?>
         </form>
         

@@ -131,7 +131,6 @@
                                                 $consulta_mensaje= "SELECT mensaje FROM pista WHERE codPista=".$fila['0']."";
                                                 $result = mysqli_query($conexion, $consulta_mensaje);
                                                 $mensaje = $result->fetch_array();
-                                                
                                                 echo "<tr>";
                                                     echo "<td>".$mensaje['0']."</td>";
                                                     echo "<td>".$fila['1']."</td>";
