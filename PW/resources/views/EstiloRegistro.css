@@ -21,6 +21,11 @@ body{
     font-size: 32px;
 }
 
+.logo{
+    width: 70px;
+    height: 70px;
+    float: right;
+}
 /*------------------------------------------------------------------*/
 
 /*MENU DE NAVEGACION*/

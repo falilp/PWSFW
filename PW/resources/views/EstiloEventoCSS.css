@@ -4,6 +4,13 @@
     font-family:'Times New Roman', Times, serif;
 }
 
+/*LOGO*/
+.logo{
+    width: 70px;
+    height: 70px;
+    float: right;
+}
+
 /*Todo que este dentro del html*/
 html{
     background-color: #CECFC9;

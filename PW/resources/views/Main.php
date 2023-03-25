@@ -15,6 +15,7 @@
     
     <body class="Cuerpo">
         <h1 id="cuerpo_h1"> Principal
+        <img class="logo" src="../img/logoKMB.png">
         </h1>
         <nav>
             <div id="menu">
@@ -39,7 +40,7 @@
                             </li>
                         <?php endif ?>
                         <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
-                    <li class="linea"><a href="Principal.php">Principal</a></li>
+                    <li class="linea"><a href="Main.php">Principal</a></li>
                     <li class="linea">
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">

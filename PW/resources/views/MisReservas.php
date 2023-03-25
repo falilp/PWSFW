@@ -8,7 +8,9 @@
     </head>
     <body>
         <header>
-            <h1>Mi Cuenta</h1>
+            <h1>Mi Cuenta
+            <img class="logo" src="../img/logoKMB.png">
+            </h1>
         </header>
         <nav>
             <div id="menu">

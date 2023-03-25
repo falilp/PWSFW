@@ -17,7 +17,9 @@
     </header>
 
     <body class="Cuerpo">
-        <h1 id="h1_cuerpo">Instalaciones</h1>
+        <h1 id="h1_cuerpo">Instalaciones
+        <img class="logo" src="../img/logoKMB.png">
+        </h1>
         <nav>
             <div id="menu">
                 <ul>

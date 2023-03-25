@@ -9,7 +9,9 @@
     <body>
         <!-- Vista Encargada de registrar Evento--->
         <header>
-            <h1 id="title_body_1">¡Bienvenido a la sección de reserva de Eventos de KMB!</h1>
+            <h1 id="title_body_1">¡Bienvenido a la sección de reserva de Eventos de KMB!
+            <img class="logo" src="../img/logoKMB.png">
+            </h1>
         </header>
         <nav>
             <div id="menu">

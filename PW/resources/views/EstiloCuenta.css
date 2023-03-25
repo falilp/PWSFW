@@ -4,6 +4,13 @@
     font-family:'Times New Roman', Times, serif;
 }
 
+/*LOGO*/
+.logo{
+    width: 70px;
+    height: 70px;
+    float: right;
+}
+
 header h1{
     background-color: #0a3143;
     color: white;

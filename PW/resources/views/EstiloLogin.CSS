@@ -2,6 +2,14 @@
     margin: 0%;
 }
 
+/*LOGO*/
+.logo{
+    width: 70px;
+    height: 70px;
+    float: right;
+}
+
+
 html{
     background-image: url("https://media.tenor.com/hgBwZv6uX-MAAAAd/que-miras-bobo.gif");
     background-size: 95%;
