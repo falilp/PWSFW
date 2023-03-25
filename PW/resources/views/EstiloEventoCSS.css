@@ -243,7 +243,6 @@ list-style: none;
 #menu ul li:hover .dropdowngtx{
     display: block;
 }
-
 /*****FORMULARIO**************/
 .form_1_subtitle h2
 {
@@ -313,6 +312,14 @@ form input
     background-color: #006699;
     color: white;
 }
+
+input[type="submit"]:hover {
+    background-color: lightblue;
+}
+
+button:hover {
+    background-color: lightblue;
+  }
 
 
 /* Estilos específicos para cada campo */
