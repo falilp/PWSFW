@@ -93,9 +93,10 @@
                     $objeto = $resultado->fetch_all();
                 ?>
                 <section>
-                    <form method="post" action="../../Back/regAlquiler.php">
-                        <h3>Disponibles: </h3>
+                    <!--<form method="post" action="../../Back/regAlquiler.php">-->
+                    <h3>Disponibles: </h3>
                         <?php foreach($objeto as $pista):?>
+                            <form method="post" action="../../Back/regAlquiler.php">
                             <br>
                             <label for="codep">Pista: <?php print("$pista[0]");?></label>
                             <input type="hidden" id="codep" name="codep" value="<?php echo "$pista[0]";?>">
@@ -103,10 +104,11 @@
                             <label for="fecha"><?php print("$pista[5]");?></label>
                             <input type="hidden" id="fecha" name="fecha" value="<?php echo "$pista[5]";?>">
                             <?php if(isset($_SESSION['usuario'])):?>
-                            <input type="submit" value="Reservar" id="Reservar">
+                                <input type="submit" value="Reservar" id="Reservar">
                             <?php endif ?>
+                            </form>
                         <?php endforeach; ?>
-                    </form>
+                    <!--</form>-->
                 </section>
             <?php endif ?>
         </main>

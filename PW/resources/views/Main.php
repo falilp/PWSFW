@@ -34,8 +34,8 @@
                             <li class="linea">
                                 <a href="Login.html">Acceso</a>
                                 <ul class="dropdowngtx">
-                                    <li class="despegable"><a href="Login.html">Login</a></li>
-                                    <li class="despegable"><a href="Registro.html">Registro</a></li>
+                                    <li class="despegableA"><a href="Login.html">Login</a></li>
+                                    <li class="despegableA"><a href="Registro.html">Registro</a></li>
                                 </ul>
                             </li>
                         <?php endif ?>

@@ -20,8 +20,8 @@
                     <li class="linea">
                         <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
                         <ul class="dropdowngtx">
-                            <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
-                            <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            <li class="despegableA"><a href="MisReservas.php">Mis reservas</a></li>
+                            <li class="despegableA"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                         </ul>
                     </li>
                     <?php else:?>

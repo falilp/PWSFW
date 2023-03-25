@@ -39,7 +39,14 @@
 
 #menu ul li.despegable a{
     display: block;
-    padding: 10px 91.5px;
+    padding: 10px 90px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+#menu ul li.despegableA a{
+    display: block;
+    padding: 10px 81.5px;
     color: white;
     text-decoration: none;
     text-align: center;
