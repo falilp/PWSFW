@@ -39,6 +39,7 @@
                                 </ul>
                             </li>
                     <?php endif ?>
+                    <li class="linea"><a href="Main.php">Principal</a></li>
                     <li class="linea">
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">

@@ -59,14 +59,41 @@
     </nav>
         <div class="AcercaDe">
                 <div class="Nosotros">
-                    <h1>Ven a nuestras pistas y llevate una experiencia inolvidable</h1>
-                </div>
+                    <h1>¡Bienvenidos a KMB, el mejor sitio para alquilar pistas deportivas!</h1>
+                    <p>
+                    Si eres un apasionado del deporte y buscas una forma fácil y accesible de practicar tus habilidades, 
+                    estás en el lugar correcto. En KMB, ofrecemos un servicio de alquiler de pistas deportivas que te permitirá 
+                    disfrutar de tus deportes favoritos sin tener que preocuparte por nada más.
+                    </p>
+                        </div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6-EqlQMPmDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="Nosotros">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/qnZ5hzzSi1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    
+                    <p>
+                    Tenemos una amplia variedad de pistas deportivas disponibles para alquilar, desde pistas de tenis y paddle hasta pistas de 
+                    fútbol, baloncesto y vóley. Todas nuestras pistas deportivas están en perfectas condiciones y están diseñadas para adaptarse a todo 
+                    tipo de niveles, desde principiantes hasta expertos.<br>
+                    
+                    <br>Además, nuestro servicio de alquiler de pistas deportivas es muy fácil de usar. Simplemente selecciona la pista deportiva que más te guste y 
+                    reserva tu horario a través de nuestra página web. También ofrecemos precios muy competitivos y descuentos.
+                    </p>
             </div>
+                    
+            <div class="AcercaDe">
+            <div class="Nosotros">
+                <h1>También te puede interesar:</h1>
+                <ul>
+                    <li><a href="https://instagram.com/esileague?igshid=YmMyMTA2M2Y=">@esileague</a></li>
+                    <li><a href="https://twitter.com/elchiringuitotv">@elchiringuitotv</a></li>
+                    <li><a href="https://twitter.com/i/status/1623686348010934272">Origen del nombre de la página</a></li>
+                    </ul>
+                    </div>
+                    <img src="https://okdiario.com/img/2021/11/20/sandra-sanchez.jpg" title="">
+                    </div>
         </body>
 
-        <div class="Imagen">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fbqHK8i-HdA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
 
     <footer class="PiePagina">
             <div class="Columna">

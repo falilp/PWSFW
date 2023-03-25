@@ -38,6 +38,7 @@
                                 </ul>
                             </li>
                         <?php endif ?>
+                        <li class="linea"><a href="Main.php">Principal</a></li>
                         <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
                         
                     <li class="linea">
