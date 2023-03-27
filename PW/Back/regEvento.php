@@ -16,7 +16,7 @@ function registrarEvento($categoria, $descripcion,$fecha,$codpista){
     $codUsuario = $data['0'];
     //Generacion de la consulta
     $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario) VALUES ('$fecha','$descripcion','$codpista', '$categoria', '$codUsuario')";
-    if(mysqli_query($conexion,$consulta)){
+    if($conexion->query($consulta)){
         header("Location:http://localhost/PWSFW/PW/resources/views/MisReservas.php");
     }else{
         header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");

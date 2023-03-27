@@ -112,25 +112,6 @@
                 </section>
             <?php endif ?>
         </main>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
     </body>
     <footer class="PiePagina">
         <div class="Columna">
