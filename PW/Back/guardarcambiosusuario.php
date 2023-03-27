@@ -14,6 +14,6 @@ echo $codUsuario;
     if($result){
         header("Location:http://localhost/PWSFW/PW/resources/views/Main.php");
     }else{
-        header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+        //header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
 ?>

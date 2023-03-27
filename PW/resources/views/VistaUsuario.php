@@ -100,7 +100,7 @@
                                             echo "<td>".$usuar['2']."</td>";
                                             echo "<td>".$usuar['3']."</td>";
                                             echo "<td>".$usuar['5']."</td>";
-                                            print("<form method=\"POST\" action=\"../../Back/ModificarUser.php\">           
+                                            print("<form method=\"POST\" action=\"./ModificarUsuario.php\">           
                                                     <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$usuar['0'].">
                                                     <td>
                                                         <input type=\"submit\" value=\"Modificar\">

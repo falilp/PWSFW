@@ -67,11 +67,12 @@
             <!--Codigo PHP-->
             <div class="container_form">
             <?php
-                function recuperar_datos($email)
+                function recuperar_datos()
                 {
+                    $codUsuario = $_POST['Modificar'];
                     //Conexion a la base de datos y creacion de la consulta
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-                    $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                    $consulta = "SELECT * FROM usuario WHERE codUsuario = '$codUsuario'";
                     $resultado = $conexion->query($consulta);
                     $objeto = $resultado->fetch_array();
                     
@@ -90,20 +91,8 @@
                                 <input type=\"text\" name=\"primerapellido\" value=".$objeto['2']." required>
                             </p>
                             <p>
-                                <label>Email:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['3']." required>   
-                            </p>
-                            <p>
-                                <label>Contraseña:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['4']." required>   
-                            </p>
-                            <p>
                                 <label>Teléfono:</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5']." required>
-                            </p>
-                            <p>
-                                <label>Permisos:</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['6']." required>
+                                <input type=\"number\" name=\"telefono\" value=".$objeto['5']." required>
                             </p>
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>
