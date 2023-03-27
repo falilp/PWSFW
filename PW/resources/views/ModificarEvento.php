@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
-    <header>
-        <link rel="stylesheet" href="EstiloAdmin.css">
-        <link rel="stylesheet" href="EstiloGeneral.css">
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-
-        <title>KMBsports.com</title>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta title="Mi cuenta">
         <link rel="icon" href="../img/iconoPagina.ico" >
-    </header>
-
-    <body class="Cuerpo">
-        <h1 id="h1_cuerpo">Instalaciones
-        <img class="logo" src="../img/logoKMB.png">
-        </h1>
+        <link rel="stylesheet" href="EstiloCuenta.css">
+        <link rel="stylesheet" href="EstiloGeneral.css">
+    </head>
+    <body>
+        <header>
+            <h1>Mi Cuenta
+            <img class="logo" src="../img/logoKMB.png">
+            </h1>
+        </header>
         <nav>
             <div id="menu">
                 <ul>
@@ -71,56 +64,70 @@
                 </ul>
             </div>
     </nav>
-        <div class="Objetos">
-            <div class="p-3 m-0 border-0 bd-example">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Generar y Eliminar pistas</h5>
-                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="Generar.php" class="btn btn-primary">Ir</a>
-                    </div>
-                </div>
+        <main>
+            <!--Codigo PHP-->
+            <div class="container_form">
+            <?php
+                function recuperar_datos($email){
+                    //Conexion a la base de datos y creacion de la consulta
+                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+
+                    //Consulta para obtener el codUsuario
+                    $consulta = "SELECT * FROM evento";
+                    $resultado = $conexion->query($consulta);
+                    
+                    if($resultado){
+                        $reservas = $resultado->fetch_all();
+                            //Mostramos en una tabla las reservas de PISTAS
+                            print("<h2>Lista de Usuarios</h2>");
+                            print("
+                            <table>
+                                <thead>
+                                    <tr>
+                                    <th>codEvento</th>
+                                    <th>FechaEvento</th>
+                                    <th>Descripcion</th>
+                                    <th>codPista</th>
+                                    <th>categoria</th>
+                                    <th>codUsuario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                ");
+                                    foreach($reservas as $evento){
+                                        echo "<tr>";
+                                        echo "<td>".$evento['0']."</td>";
+                                        echo "<td>".$evento['1']."</td>";
+                                        echo "<td>".$evento['2']."</td>";
+                                        echo "<td>".$evento['3']."</td>";
+                                        echo "<td>".$evento['5']."</td>";
+                                        echo "<td>"."Modificar"."</td>";
+                                        echo "<td>"."Eliminar"."</td>";
+                                        echo "</tr>";
+                                    }
+                            print("
+                                </tbody>
+                            </table>
+                            ");
+                        }else{
+                            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+                        }
+
+                        
+                }
+            
+                //Obtener las credenciales del usuario actual
+                include_once '../../Back/sesion.php'; 
+                //$ses = new Sesion();
+                if(isset($_SESSION['usuario'])){
+                    recuperar_datos($ses->retornarSesion());
+                }else{
+                    header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+                }
+            ?>
             </div>
-            <div class="p-3 m-0 border-0 bd-example">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Modificar Usuaurio</h5>
-                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarUsuario.php" class="btn btn-primary">Ir</a>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 m-0 border-0 bd-example">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Modificar Pistas</h5>
-                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarPista.php" class="btn btn-primary">Ir</a>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 m-0 border-0 bd-example">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Modificar Alquileres</h5>
-                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarAlquiler.php" class="btn btn-primary">Ir</a>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 m-0 border-0 bd-example">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Modificar Eventos</h5>
-                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarEvento.php" class="btn btn-primary">Ir</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </body>
-    <footer class="PiePagina" id="Contacto">
+        </main>
+        <footer class="PiePagina" id="Contacto">
             <div class="Columna">
                 <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">                     <!--Enlace a la pagina de la UCA-->
                     <img src="../img/LogoUCA.png" alt="Logo Escuela Superior Ingenieria" class="UCA" >    <!--Logo UCA-->
@@ -145,5 +152,6 @@
                     <li><p class="Parrafos">CP 11519 Puerto Real, Cádiz</p></li>                       <!---->
                 </ul>
             </div>
-        </footer>
+        </footer>  
+    </body>
 </html>
