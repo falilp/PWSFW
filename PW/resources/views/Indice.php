@@ -21,23 +21,35 @@
                 <ul>
                     <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
                     <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
-                        <?php if(isset($_SESSION['usuario'])):?>
-                            <li class="linea">
-                            <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
+                    <?php if(isset($_SESSION['usuario'])):?>
+                        <li class="linea">
+                        <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
+                        <?php   $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                                $email=$ses->retornarSesion();
+                                $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                                $resultado = $conexion->query($consulta);
+                                $objeto = $resultado->fetch_array(); ?>
+                        <?php if($objeto[6] == 1):?>
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="vistaAdmin.php">Gestión</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        <?php else: ?>    
                             <ul class="dropdowngtx">
                                 <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
                                 <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
                             </ul>
-                        </li>
-                        <?php else:?>
-                            <li class="linea">
+                        <?php endif ?>
+                    </li>
+                    <?php else: ?> 
+                        <li class="linea">
                                 <a href="Login.html">Acceso</a>
                                 <ul class="dropdowngtx">
                                     <li class="despegableA"><a href="Login.html">Login</a></li>
                                     <li class="despegableA"><a href="Registro.html">Registro</a></li>
                                 </ul>
-                            </li>
-                        <?php endif ?>
+                            </li>                        
+                    <?php endif ?>
                         <li class="linea"><a href="Main.php">Principal</a></li>
                         <!--PARTE DE ACCESO QUE MUESTRA EL EMAIL-->
                         

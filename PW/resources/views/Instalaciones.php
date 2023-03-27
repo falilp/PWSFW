@@ -23,23 +23,35 @@
         <nav>
             <div id="menu">
                 <ul>
-                    <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
+                <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
                         <li class="linea">
                         <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
-                        <ul class="dropdowngtx">
-                            <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
-                            <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
-                        </ul>
+                        <?php   $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                                $email=$ses->retornarSesion();
+                                $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                                $resultado = $conexion->query($consulta);
+                                $objeto = $resultado->fetch_array(); ?>
+                        <?php if($objeto[6] == 1):?>
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="vistaAdmin.php">Gestión</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        <?php else: ?>    
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        <?php endif ?>
                     </li>
-                    <?php else:?>
+                    <?php else: ?> 
                         <li class="linea">
                                 <a href="Login.html">Acceso</a>
                                 <ul class="dropdowngtx">
                                     <li class="despegableA"><a href="Login.html">Login</a></li>
                                     <li class="despegableA"><a href="Registro.html">Registro</a></li>
                                 </ul>
-                            </li>
+                            </li>                        
                     <?php endif ?>
                     <li class="linea"><a href="Main.php">Principal</a></li>
                     <li class="linea">
@@ -59,7 +71,6 @@
                 </ul>
             </div>
     </nav>
-        
         <div class="Objetos">
             <div class="p-3 m-0 border-0 bd-example">
                 <div class="card" style="width: 18rem;">

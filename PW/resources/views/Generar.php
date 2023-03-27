@@ -16,23 +16,35 @@
         <nav>
             <div id="menu">
                 <ul>
-                    <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
+                <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
-                    <li class="linea">
+                        <li class="linea">
                         <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
-                        <ul class="dropdowngtx">
-                            <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
-                            <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
-                        </ul>
+                        <?php   $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                                $email=$ses->retornarSesion();
+                                $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                                $resultado = $conexion->query($consulta);
+                                $objeto = $resultado->fetch_array(); ?>
+                        <?php if($objeto[6] == 1):?>
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="vistaAdmin.php">Gestión</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        <?php else: ?>    
+                            <ul class="dropdowngtx">
+                                <li class="despegable"><a href="MisReservas.php">Mis reservas</a></li>
+                                <li class="despegable"><a href="../../Back/logOut.php">Cerrar Sesion</a></li>
+                            </ul>
+                        <?php endif ?>
                     </li>
-                    <?php else:?>
+                    <?php else: ?> 
                         <li class="linea">
                                 <a href="Login.html">Acceso</a>
                                 <ul class="dropdowngtx">
                                     <li class="despegableA"><a href="Login.html">Login</a></li>
                                     <li class="despegableA"><a href="Registro.html">Registro</a></li>
                                 </ul>
-                            </li>
+                            </li>                        
                     <?php endif ?>
                     <li class="linea"><a href="Main.php">Principal</a></li>
                     <li class="linea">
@@ -52,12 +64,33 @@
                 </ul>
             </div>
     </nav>
-        <div class="form_container">
-            <form method="post" action="../../Back/generarPistas.php">
-                    <label>generar Pistas: </label>
-                <input type="submit" value="Generar">
-            </form>
-        </div>
+        <?php if(isset($_SESSION['usuario'])):?>
+            <?php   $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                    $email=$ses->retornarSesion();
+                    $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                    $resultado = $conexion->query($consulta);
+                    $objeto = $resultado->fetch_array(); ?>
+            <?php if($objeto[6] == 1):?>
+                <div class="form_container">
+                <form method="post" action="../../Back/generarPistas.php">
+                        <label>generar Pistas: </label>
+                    <input type="submit" value="Generar">
+                </form>
+            </div>        
+            <?php else: ?>    
+                <div class="form_container">
+                <form method="post" action="Main.php">
+                        <label>Tienes el acceso restringido:</label>
+                    <input type="submit" value="main">
+                </form>              
+            <?php endif ?>
+        <?php else: ?>
+            <div class="form_container">
+                <form method="post" action="Main.php">
+                        <label>Volver al Inicio:</label>
+                    <input type="submit" value="main">
+                </form>  
+        <?php endif ?>
     </body>
 
     <footer class="PiePagina">
