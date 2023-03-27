@@ -94,21 +94,30 @@
 
     </body>
 
-    <footer class="PiePagina">
+    <footer class="PiePagina" id="Contacto">
             <div class="Columna">
-                <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">
-                    <img src="../img/LogoUCA.png" alt="Logo Escuela Superior Ingenieria" class="UCA" >
+                <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">                     <!--Enlace a la pagina de la UCA-->
+                    <img src="../img/LogoUCA.png" alt="Logo Escuela Superior Ingenieria" class="UCA" >    <!--Logo UCA-->
                 </a>
             </div>
-            
+
             <div class="Columna">
-                <p class="Parrafos">KMB Sports</p>
-            </div>
-            <div class="Columna">
+                <!--Area de Contacto-->
                 <ul class="Contacto">
-                    <li><p class="Parrafos">Email: kmbsports@hotmail.com</p></li>
-                    <li><p class="Parrafos">Telefono: 897430635</p></li>
+                    <li><h5>KMBsports© 2023</h5></li>                           <!--Nombre de la Empresa-->
+                    <li><a class ="Parrafos" href=mailto:atencionCliente@kmbsports.com>Email: atencionCliente@kmbsports.com</a></li>    <!--Correo-->
+                    <li><p class="Parrafos">Telefono: +34 945678332 </p></li>                      <!--Telefono-->
                 </ul>
             </div>
-    </footer>   
+
+            <div class="Columna">
+                <!--Area de Contacto-->
+                <ul class="Contacto">
+                    <li><a class ="Parrafos" href=mailto:direccion.esi@uca.es>Email: direccion.esi@uca.es</a></li>          <!--Correo-->
+                    <li><p class="Parrafos">Telefono: +34 956483200  </p></li>                         <!--Telefono-->
+                    <li><p class="Parrafos">Dirección: Avda. Universidad de Cádiz, nº 10</p></li>      <!--Direccion UCA-->
+                    <li><p class="Parrafos">CP 11519 Puerto Real, Cádiz</p></li>                       <!---->
+                </ul>
+            </div>
+        </footer> 
 </html>

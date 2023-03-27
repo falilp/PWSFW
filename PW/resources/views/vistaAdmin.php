@@ -81,6 +81,42 @@
                     </div>
                 </div>
             </div>
+            <div class="p-3 m-0 border-0 bd-example">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Modificar Usuaurio</h5>
+                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
+                        <a href="Generar.php" class="btn btn-primary">Ir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 m-0 border-0 bd-example">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Modificar Pistas</h5>
+                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
+                        <a href="Generar.php" class="btn btn-primary">Ir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 m-0 border-0 bd-example">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Modificar Alquileres</h5>
+                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
+                        <a href="Generar.php" class="btn btn-primary">Ir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 m-0 border-0 bd-example">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Modificar Eventos</h5>
+                        <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
+                        <a href="Generar.php" class="btn btn-primary">Ir</a>
+                    </div>
+                </div>
+            </div>
         </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
