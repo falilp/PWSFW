@@ -154,13 +154,13 @@
                         $anioActual = date('Y', strtotime($fechaActual));
                 
                     //Consultamos con eventos
-                        $consultaEvento = "SELECT DAY(FechaEvento),codPista FROM evento WHERE MONTH(FechaEvento) = '$mesActual' AND YEAR(FechaEvento) = $anioActual AND DAY(FechaEvento) >= $diaActual";
+                        $consultaEvento = "SELECT DAY(FechaEvento),codPista FROM evento WHERE MONTH(FechaEvento) = '$mesActual' AND YEAR(FechaEvento) = '$anioActual' AND DAY(FechaEvento) >= $diaActual";
                         $resultadoEvento = mysqli_query($conexion, $consultaEvento);
                 
-                        $consultaPistas = "SELECT DAY(fecha_alquiler),codPista FROM alquiler WHERE MONTH(fecha_alquiler) = '$mesActual' AND YEAR(fecha_alquiler) = $anioActual AND DAY(fecha_alquiler) >= $diaActual";
+                        $consultaPistas = "SELECT DAY(HoraDisponible), tipoPista FROM pista WHERE MONTH(HoraDisponible) = '$mesActual' AND YEAR(HoraDisponible) = '$anioActual' AND DAY(HoraDisponible) >= $diaActual";
                         $resultadoPistas = mysqli_query($conexion, $consultaPistas);
                 
-                        if($resultadoPistas && $resultadoEvento)
+                        if($resultadoEvento && $resultadoPistas)
                         {
                             $fechasOcupadasEventos = $resultadoEvento->fetch_all();
                             $fechasOcupadasPistas = $resultadoPistas->fetch_all();
@@ -172,7 +172,7 @@
                                 //No hay ningun evento el mismo dia
                                 foreach($fechasOcupadasEventos as $diaEvento)
                                 {
-                                    if($diaActual == $diaEvento['0'] && $disp && $codPista == $diaEvento['1'])
+                                    if($diaActual == $diaEvento['0'] && $disp && $tipoPista == $diaEvento['1'])
                                     {
                                         $disp = false;
                                     }
@@ -182,7 +182,7 @@
                                 {
                                     foreach($fechasOcupadasPistas as $diaPista)
                                     {
-                                        if($diaActual == $diaPista['0'] && $disp && $codPista == $diaPista['1'])
+                                        if($diaActual == $diaPista['0'] && $disp && $tipoPista == $diaPista['1'])
                                         {
                                             $disp = false;
                                         }
@@ -197,6 +197,23 @@
                             }
                             echo "</select>";
                             
+                        }
+
+                        //Mostrar pistas para elegir
+                        $consulta4 = "SELECT codPista FROM pista WHERE disponible='0' AND CONVERT(DATE, HoraDisponible)=$fechaActual";
+                        $result = mysqli_query($conexion, $consulta4);
+                        if($result){
+                            print("
+                            <label> Selecciona la pista: </label>
+                            <select id=\"select\" name=\"codpista\">
+                        ");
+                            $pistas_disponibles = $result->fetch_all();
+                            $contador = 1;
+                            foreach($pistas_disponibles as $pista){
+                                $codpista = $pista['0'];
+                                echo "<option value=\"".$pista['0']."\">Pista $contador</option>";
+                            }
+                            echo "</select>";
                         }
                 ?>
                 <label>Introduce descripción: </label>
