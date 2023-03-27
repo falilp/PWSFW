@@ -16,7 +16,7 @@ function borrarUsuario($codigoUsuario){
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $codigoUsuario = $_POST['eliminar']; 
+    $codigoUsuario = $_POST['Eliminar']; 
 
     borrarUsuario($codigoUsuario);
 }
