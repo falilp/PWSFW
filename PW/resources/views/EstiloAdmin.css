@@ -1,0 +1,45 @@
+.Objetos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*LOGO*/
+.logo{
+    width: 70px;
+    height: 70px;
+    float: right;
+}
+
+body{
+    background-image: url("https://imgs.search.brave.com/DHmyr-sI3jnDH_MQquLdlNQCUem028DofEBp0gm892Y/rs:fit:1200:847:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vZXhwbGlj/YXRpb25kZWZpbG0u/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDE5LzExL0FtZXJp/Y2FuLVBzeWNoby1F/bmRpbmctMDEucG5n/P3c9MTU5MSZzc2w9/MQ");
+    background-size: 100%;
+}
+
+#h1_cuerpo
+{
+    background-color: #0a3143;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    top: -10px;
+    text-align: left;
+    margin-bottom: 0%;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.boton{
+    background-color: #276E90;
+}
+
+.btn-primary{
+    background-color: #276E90 !important;
+    border-color: #CECFC9 !important;
+}
+
+.btn-primary:hover{
+    background-color: #0A3143 !important;
+}

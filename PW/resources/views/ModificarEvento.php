@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head> 
-        <title> Registro de usuario </title>
-        <meta charset="utf-8"> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta title="Mi cuenta">
         <link rel="icon" href="../img/iconoPagina.ico" >
-        <link rel="stylesheet" href="EstiloF7.css">
+        <link rel="stylesheet" href="EstiloCuenta.css">
+        <link rel="stylesheet" href="EstiloGeneral.css">
     </head>
     <body>
         <header>
-            <h1 id="title">Alquiler Futbol-7</h1>
+            <h1>Mi Cuenta
+            <img class="logo" src="../img/logoKMB.png">
+            </h1>
         </header>
         <nav>
-                <div id="menu">
-                    <ul>
-                    <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
+            <div id="menu">
+                <ul>
+                <?php include_once '../../Back/sesion.php'; $ses = new Sesion();?>
                     <?php if(isset($_SESSION['usuario'])):?>
                         <li class="linea">
                         <a href="Cuenta.php"><?php echo $ses->retornarSesion()?></a>
@@ -43,8 +46,8 @@
                                 </ul>
                             </li>                        
                     <?php endif ?>
-                        <li class="linea"><a href="Main.php">Principal</a></li>
-                        <li class="linea">
+                    <li class="linea"><a href="Main.php">Principal</a></li>
+                    <li class="linea">
                         <a href="Instalaciones.php">Instalaciones</a>
                         <ul class="dropdowngtx">
                             <li class="despegable"><a href="AlquilarBaloncesto.php">Baloncesto</a></li>
@@ -56,76 +59,75 @@
                             <li class="despegable"><a href="AlquilarTenis.php">Tenis</a></li>
                         </ul>
                     </li>
-                        <li class="linea"><a href="Evento.php">Eventos</a></li>
-                        <li class="linea"><a href="Indice.php">Sobre Nosotros</a></li>
-                    </ul>
-                </div>
-        </nav>
+                    <li class="linea"><a href="Evento.php">Eventos</a></li>
+                    <li class="linea"><a href="Indice.php">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+    </nav>
         <main>
-            <?php if($_SERVER["REQUEST_METHOD"] != "POST"):?>
-                <section>
-                    <form method="post" action="">
-                        <h3>Alquilar Pista: </h3>
-                        <br>
-                        <label for="fecha">Selecciona fecha:</label>
-                        <select id="fecha" name="fecha">
-                            <?php
-                                $fechaActual = date('Y-m-d');
+            <!--Codigo PHP-->
+            <div class="container_form">
+            <?php
+                function recuperar_datos($email){
+                    //Conexion a la base de datos y creacion de la consulta
+                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
 
-                                $diaActual = date('d', strtotime($fechaActual));
-                                $mesActual = date('m', strtotime($fechaActual));
-                                $anioActual = date('Y', strtotime($fechaActual));
-
-                                $diaSemana = date('w', strtotime($fechaActual)); // Obtenemos el número correspondiente al día de la semana (0-6)
-                                while($diaSemana != 0 && $diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
-                                    echo "<option value=\"$fechaActual\">$fechaActual</option>";
-                                    //Incrementamos el dia
-                                    $diaActual++;
-                                    if($diaSemana == 6)
-                                    {
-                                        $diaSemana = 0;
-                                    }else{
-                                        $diaSemana++;
-                                    }
-
-                                    $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
-                                }
-                            ?>
-                        </select>
-                        <br>
-                        <input type="submit" value="Enviar">
-                    </form>
-                </section>
-            <?php else: ?>
-                <?php 
-                    $fecha = $_POST['fecha'];
-                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");    
-                    $consulta = "SELECT * FROM pista WHERE CAST(HoraDisponible AS date) = CAST('$fecha' AS date) AND disponible = 0 AND tipoPista = 2";
+                    //Consulta para obtener el codUsuario
+                    $consulta = "SELECT * FROM evento";
                     $resultado = $conexion->query($consulta);
-                    $objeto = $resultado->fetch_all();
-                ?>
-                <section>
-                    <!--<form method="post" action="../../Back/regAlquiler.php">-->
-                    <h3>Disponibles: </h3>
-                        <?php foreach($objeto as $pista):?>
-                            <form method="post" action="../../Back/regAlquiler.php">
-                            <br>
-                            <label for="codep">Pista: <?php print("$pista[0]");?></label>
-                            <input type="hidden" id="codep" name="codep" value="<?php echo "$pista[0]";?>">
-                            <br>
-                            <label for="fecha"><?php print("$pista[5]");?></label>
-                            <input type="hidden" id="fecha" name="fecha" value="<?php echo "$pista[5]";?>">
-                            <?php if(isset($_SESSION['usuario'])):?>
-                                <input type="submit" value="Reservar" id="Reservar">
-                            <?php endif ?>
-                            </form>
-                        <?php endforeach; ?>
-                    <!--</form>-->
-                </section>
-            <?php endif ?>
+                    
+                    if($resultado){
+                        $reservas = $resultado->fetch_all();
+                            //Mostramos en una tabla las reservas de PISTAS
+                            print("<h2>Lista de Usuarios</h2>");
+                            print("
+                            <table>
+                                <thead>
+                                    <tr>
+                                    <th>codEvento</th>
+                                    <th>FechaEvento</th>
+                                    <th>Descripcion</th>
+                                    <th>codPista</th>
+                                    <th>categoria</th>
+                                    <th>codUsuario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                ");
+                                    foreach($reservas as $evento){
+                                        echo "<tr>";
+                                        echo "<td>".$evento['0']."</td>";
+                                        echo "<td>".$evento['1']."</td>";
+                                        echo "<td>".$evento['2']."</td>";
+                                        echo "<td>".$evento['3']."</td>";
+                                        echo "<td>".$evento['5']."</td>";
+                                        echo "<td>"."Modificar"."</td>";
+                                        echo "<td>"."Eliminar"."</td>";
+                                        echo "</tr>";
+                                    }
+                            print("
+                                </tbody>
+                            </table>
+                            ");
+                        }else{
+                            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+                        }
+
+                        
+                }
+            
+                //Obtener las credenciales del usuario actual
+                include_once '../../Back/sesion.php'; 
+                //$ses = new Sesion();
+                if(isset($_SESSION['usuario'])){
+                    recuperar_datos($ses->retornarSesion());
+                }else{
+                    header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+                }
+            ?>
+            </div>
         </main>
-    </body>
-    <footer class="PiePagina" id="Contacto">
+        <footer class="PiePagina" id="Contacto">
             <div class="Columna">
                 <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">                     <!--Enlace a la pagina de la UCA-->
                     <img src="../img/LogoUCA.png" alt="Logo Escuela Superior Ingenieria" class="UCA" >    <!--Logo UCA-->
@@ -150,5 +152,6 @@
                     <li><p class="Parrafos">CP 11519 Puerto Real, Cádiz</p></li>                       <!---->
                 </ul>
             </div>
-        </footer>
+        </footer>  
+    </body>
 </html>

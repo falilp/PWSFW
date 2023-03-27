@@ -86,9 +86,17 @@
 }
 
 .PiePagina p{
-    color: white;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.PiePagina a{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.PiePagina a:hover{
+    color: blueviolet;;
 }
 
 .Contacto{
@@ -96,7 +104,21 @@ list-style: none;
 }
 
 .Columna{
-    width: 25%;
+    width: 22%;
+}
+
+/*PARRAFOS DEL PIE*/
+.Columna .Parrafos{
+    color: white;
+    text-decoration: none;
+    font-size:small;
+    width: 90%;
+}
+
+.Columna h5{
+    width: 90%;
+    color: white;
+    margin-left: 10%;
 }
 
 /*_________________________________________________________________________________________________*/
