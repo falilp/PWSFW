@@ -176,7 +176,7 @@
                                         }
                             echo "</select>";
                             echo "<input type=\"hidden\" name=\"pista\" value=\"$tipoPista\">";
-                            echo "<input type=\"submit\" id=\"tipoPista\" value=\"Mirar pistas disonibles\">";
+                            echo "<button type=\"submit\">Mirar pistas disponibles</button>";
                         echo "</form>";
                         echo "</div>";
                     }

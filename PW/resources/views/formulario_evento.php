@@ -154,7 +154,7 @@
                     ");
                     echo "<input type=\"hidden\" name=\"pista\" value=\"$tipoPista\">";
                     echo "<input type=\"hidden\" name=\"fecha\" value=\"$fecha\">";
-                    echo "<button type=\"submit\" name=\"pista\" value=\"Mirar Pistas disponibles\">Reservar</button>";
+                    echo "<button type=\"submit\">Reservar</button>";
                     echo "</div>";
             ?>   
             </div>

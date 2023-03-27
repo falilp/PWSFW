@@ -117,7 +117,7 @@
                             <option value="2">Futbol 7</option>
                             <option value="1">Futbol 11</option>
                     </select>
-                <input type="submit" value="Mirar dias Disponibles">
+                <button type="submit">Mirar dias Disponibles</button>
             </form>
         </div>
         </section>

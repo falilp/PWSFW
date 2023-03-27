@@ -14,12 +14,16 @@ function registrarEvento($categoria, $descripcion, $fecha, $tipopista, $codpista
     $data = $result->fetch_array();
 
     $codUsuario = $data['0'];
+    print("
+    $categoria, $descripcion, $fecha, $tipopista, $codpista, $codUsuario
+    ");
     //Generacion de la consulta
     $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario,tipoPista) VALUES ('$fecha','$descripcion','$codpista', '$categoria', '$codUsuario', '$tipopista')";
     if(mysqli_query($conexion,$consulta)){
         header("Location:http://localhost/PWSFW/PW/resources/views/MisReservas.php");
     }else{
-        header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+        echo "NO FUNSIONA";
+        //header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
     mysqli_close($conexion);
 } 
