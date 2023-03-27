@@ -105,21 +105,60 @@
             </p>   
         </section> 
         <!--SELECCIONA TIPO DE PISTA-->
-        <div class="form_container">
-            <form method="post" action="./formulario_evento_fecha.php">
-                <label>Selecciona Pista: </label>
-                    <select id="select" name="pista">
-                        <option value="3">Futbol Sala</option>
-                            <option value="4">Tenis</option>
-                            <option value="5">Baloncesto</option>
-                            <option value="6">Voleibol</option>
-                            <option value="7">Padel</option>
-                            <option value="2">Futbol 7</option>
-                            <option value="1">Futbol 11</option>
-                    </select>
-                <input type="submit" value="Mirar dias Disponibles">
-            </form>
-        </div>
+        <?php 
+            //SELECCIONA LA FECHA DE ALQUILER
+            //Rescatar codigo de pista
+            $tipoPista = $_POST['pista'];
+            $fecha = $_POST['fecha'];
+            $dia = date('d', strtotime($fecha));
+            $mes = date('m', strtotime($fecha));
+            $anio = date('Y', strtotime($fecha));
+
+                //Conexion con la base de datos
+                $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                $consulta = "SELECT codPista FROM pista WHERE disponible='0' AND YEAR(HoraDisponible) = '$anio' AND MONTH(HoraDisponible) = '$mes' AND DAY(HoraDisponible) = '$dia' AND HOUR(HoraDisponible)='10'";
+                $resultado = mysqli_query($conexion, $consulta);
+                    //Selecciona la pista
+                        //Mostrar pistas para elegir
+                    print("<div class=\"form_container\">
+                    <div class=\"form_container\">
+                    <form action=\"../../Back/regEvento.php\" method=\"POST\">
+                    ");
+                        if($resultado){
+                            print("
+                            <label>Selecciona la pista: </label>
+                            <select id=\"select\" name=\"codpista\">
+                        ");
+                            $pistas_disponibles = $resultado->fetch_all();
+                            $contador = 1;
+                            foreach($pistas_disponibles as $pista){
+                                $codpista = $pista['0'];
+                                echo "<option value=\"".$codpista."\">Pista $contador</option>";
+                                $contador++;
+                            }
+                            echo "</select>";
+                        }
+
+                        print("
+                        <p>
+                        <label>Categoría: </label>
+                        <select id=\"select\" name=\"categoria\">
+                            <option>Cumpleaños</option>
+                            <option>Torneo</option>
+                        </select>
+                        <br>"
+                    );
+                    print("
+                    <label>Introduce descripción: </label>
+                    <input type=\"text\" id=\"descrip\" name=\"descripcion\"> 
+                    ");
+                    echo "<input type=\"hidden\" name=\"pista\" value=\"$tipoPista\">";
+                    echo "<input type=\"hidden\" name=\"fecha\" value=\"$fecha\">";
+                    echo "<button type=\"submit\" name=\"pista\" value=\"Mirar Pistas disponibles\">Reservar</button>";
+                    echo "</div>";
+            ?>   
+            </div>
+        </form>
         </section>
     <?php else:?>
         <p id="p_form">

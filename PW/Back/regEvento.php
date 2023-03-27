@@ -15,7 +15,7 @@ function registrarEvento($categoria, $descripcion, $fecha, $tipopista, $codpista
 
     $codUsuario = $data['0'];
     //Generacion de la consulta
-    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario) VALUES ('$fecha','$descripcion','$codpista', '$categoria', '$codUsuario')";
+    $consulta = "INSERT INTO evento (FechaEvento,Descripcion,CodPista,categoria,codUsuario,tipoPista) VALUES ('$fecha','$descripcion','$codpista', '$categoria', '$codUsuario', '$tipopista')";
     if(mysqli_query($conexion,$consulta)){
         header("Location:http://localhost/PWSFW/PW/resources/views/MisReservas.php");
     }else{
@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $fecha = $_POST['fecha'];
     $tipopista = $_POST['pista'];
     $codpista = $_POST['codpista'];
+
     registrarEvento($categoria, $descripcion, $fecha, $tipopista, $codpista);
 }
 

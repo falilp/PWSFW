@@ -105,21 +105,84 @@
             </p>   
         </section> 
         <!--SELECCIONA TIPO DE PISTA-->
-        <div class="form_container">
-            <form method="post" action="./formulario_evento_fecha.php">
-                <label>Selecciona Pista: </label>
-                    <select id="select" name="pista">
-                        <option value="3">Futbol Sala</option>
-                            <option value="4">Tenis</option>
-                            <option value="5">Baloncesto</option>
-                            <option value="6">Voleibol</option>
-                            <option value="7">Padel</option>
-                            <option value="2">Futbol 7</option>
-                            <option value="1">Futbol 11</option>
-                    </select>
-                <input type="submit" value="Mirar dias Disponibles">
-            </form>
-        </div>
+        <?php 
+            //SELECCIONA LA FECHA DE ALQUILER
+            //Rescatar codigo de pista
+            $tipoPista = $_POST['pista'];
+                //Conexion con la base de datos
+                $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+
+                //De codPista a mensaje
+                $consulta_mensaje= "SELECT mensaje FROM pista WHERE tipoPista=".$tipoPista."";
+                $result = mysqli_query($conexion, $consulta_mensaje);
+                $mensaje = $result->fetch_array();
+                $mensaje = $mensaje['0'];
+                
+                    //Obtenemos la fecha actual
+                    $fechaActual = date('Y-m-d');
+                    $diaActual = date('d', strtotime($fechaActual));
+                    $mesActual = date('m', strtotime($fechaActual));
+                    $anioActual = date('Y', strtotime($fechaActual));
+            
+                //Consultamos con eventos
+                    $consultaEvento = "SELECT DAY(FechaEvento),codPista FROM evento WHERE MONTH(FechaEvento) = '$mesActual' AND YEAR(FechaEvento) = '$anioActual' AND DAY(FechaEvento) >= $diaActual";
+                    $resultadoEvento = mysqli_query($conexion, $consultaEvento);
+            
+                    $consultaPistas = "SELECT DAY(HoraDisponible), tipoPista, disponible FROM pista WHERE MONTH(HoraDisponible) = '$mesActual' AND YEAR(HoraDisponible) = '$anioActual' AND DAY(HoraDisponible) >= $diaActual";
+                    $resultadoPistas = mysqli_query($conexion, $consultaPistas);
+            
+                    if($resultadoEvento && $resultadoPistas)
+                    {
+                        $fechasOcupadasEventos = $resultadoEvento->fetch_all();
+                        $fechasOcupadasPistas = $resultadoPistas->fetch_all();
+                        echo "<div class=\"form_container\">";
+                            echo "<form action=\"./formulario_evento.php\" method=\"post\">";
+                            print("<label>Pista Seleccionada: $mensaje</label><br>");
+                                echo "<label>Selecciona Fecha</label>";
+                                echo "<select id=\"select\" name=\"fecha\" action=\"./formulario_evento.php\">";
+                                        while($diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
+                                            $disp = true;
+                                            //No hay ningun evento el mismo dia
+                                            if(!empty($fechasOcupadasEventos))
+                                            {
+                                                foreach($fechasOcupadasEventos as $diaEvento)
+                                                {
+                                                    if($diaActual == $diaEvento['0'] && $disp && $tipoPista == $diaEvento['1'])
+                                                    {
+                                                        $disp = false;
+                                                    }
+                                                }
+                                            }
+                                            //La pista esta disponible durante todo el dia
+                                            if($disp)
+                                            {
+                                                if(!empty($fechasOcupadasPistas))
+                                                {
+                                                    foreach($fechasOcupadasPistas as $diaPista)
+                                                {
+                                                    if($diaActual == $diaPista['0'] && $disp && $tipoPista == $diaPista['1'] && $diaPista['2'] == 1)
+                                                    {
+                                                        $disp = false;
+                                                    }
+                                                }
+                                                }
+                                            }
+                                            if($disp)
+                                            {
+                                                echo "<option value=\"$fechaActual\">$fechaActual</option>";
+                                            }
+                                            $diaActual++;
+                                            $fechaActual= $anioActual."-".$mesActual."-".$diaActual;
+                                        }
+                            echo "</select>";
+                            echo "<input type=\"hidden\" name=\"pista\" value=\"$tipoPista\">";
+                            echo "<input type=\"submit\" id=\"tipoPista\" value=\"Mirar pistas disonibles\">";
+                        echo "</form>";
+                        echo "</div>";
+                    }
+            ?>   
+            </div>
+        </form>
         </section>
     <?php else:?>
         <p id="p_form">
