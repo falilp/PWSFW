@@ -65,7 +65,7 @@
                                 $anioActual = date('Y', strtotime($fechaActual));
 
                                 $diaSemana = date('w', strtotime($fechaActual)); // Obtenemos el número correspondiente al día de la semana (0-6)
-                                while($diaSemana != 1 && $diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
+                                while($diaSemana != 0 && $diaActual <= cal_days_in_month(0, $mesActual, $anioActual)){
                                     echo "<option value=\"$fechaActual\">$fechaActual</option>";
                                     //Incrementamos el dia
                                     $diaActual++;
