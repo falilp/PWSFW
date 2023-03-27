@@ -90,6 +90,7 @@
                                     <th>codPista</th>
                                     <th>categoria</th>
                                     <th>codUsuario</th>
+                                    <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -101,18 +102,18 @@
                                         echo "<td>".$evento['2']."</td>";
                                         echo "<td>".$evento['3']."</td>";
                                         echo "<td>".$evento['5']."</td>";
-                                        print("<form method=\"POST\" action=\"../../Back/ModificarUser.php\">           
-                                                    <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$evento['0'].">
+                                        print("<form method=\"POST\" action=\"ModificarUsuario.php\">           
+                                                    <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$evento[0].">
                                                     <td>
                                                         <input type=\"submit\" value=\"Modificar\">
                                                     </td>
                                                 </form>");
-                                        print("<form method=\"POST\" action=\"../../Back/deleteEventoAdmin.php\">           
-                                                <input type=\"hidden\" name=\"eliminar\" id=\"eliminar\" value=".$evento['0'].">
-                                                <td>
-                                                    <input type=\"submit\" value=\"eliminar\">
-                                                </td>
-                                            </form>");
+                                                print("<form method=\"POST\" action=\"../../Back/deleteEventoAdmin.php\">           
+                                                    <input type=\"hidden\" name=\"cancelar\" id=\"cancelar\" value=".$evento[0].">
+                                                    <td>
+                                                        <input type=\"submit\" value=\"cancelar\">
+                                                    </td>
+                                                </form>");
                                         echo "</tr>";
                                     }
                             print("

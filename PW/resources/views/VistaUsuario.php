@@ -106,6 +106,7 @@
                                                         <input type=\"submit\" value=\"Modificar\">
                                                     </td>
                                                 </form>");
+                                                
                                             print("<form method=\"POST\" action=\"../../Back/deleteUser.php\">           
                                                     <input type=\"hidden\" name=\"Eliminar\" id=\"Eliminar\" value=".$usuar['0'].">
                                                     <td>

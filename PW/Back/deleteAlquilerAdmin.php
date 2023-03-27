@@ -5,7 +5,7 @@ function borrarAlquiler($codigoPista){
     $update = "UPDATE pista SET disponible = 0 WHERE codPista = '$codigoPista'";
 
     if($conexion->query($consulta) && $conexion->query($update)){
-        header("Location:http://localhost/PWSFW/PW/resources/views/MisReservas.php");
+        header("Location:http://localhost/PWSFW/PW/resources/views/main.php");
     }else{
         header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
     }
