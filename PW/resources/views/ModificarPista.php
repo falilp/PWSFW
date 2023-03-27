@@ -67,39 +67,36 @@
             <!--Codigo PHP-->
             <div class="container_form">
             <?php
-                function recuperar_datos($email)
+                function recuperar_datos()
                 {
+                    $codPista = $_POST['Modificar'];
                     //Conexion a la base de datos y creacion de la consulta
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-                    $consulta = "SELECT * FROM usuario WHERE email = '$email'";
+                    $consulta = "SELECT * FROM pista WHERE codPista = '$codPista'";
                     $resultado = $conexion->query($consulta);
                     $objeto = $resultado->fetch_array();
                     
                     //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
                 print("<div class=\"formulario-container\">");
                 print("<div class=\"formulario\">");
-                    print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
-                    <h2>Ajustes de usuario</h2>
+                    print("<form action=\"./guardarcambiospista.php\" method=\"POST\">
+                    <h2>Modificar Pista: </h2>
                     <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
                             <p>
                                 <label>Tipo:</label><br>
-                                <input type=\"text\" name=\"nombre\" value=".$objeto['1']." required>
+                                <input type=\"text\" name=\"tipo\" value=".$objeto['1']." required>
                             </p>
                             <p>
                                 <label>Precio:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2']." required>
+                                <input type=\"text\" name=\"precio\" value=".$objeto['2']." required>
                             </p>
                             <p>
                                 <label>Disponible:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['3']." required>   
+                                <input type=\"text\" name=\"disponible\" value=".$objeto['3']." required>   
                             </p>
                             <p>
                                 <label>Mensaje:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['4']." required>   
-                            </p>
-                            <p>
-                                <label>Hora Disponible:</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5']." required>
+                                <input type=\"text\" name=\"mensaje\" value=".$objeto['4']." required>   
                             </p>
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>

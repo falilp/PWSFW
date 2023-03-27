@@ -102,7 +102,7 @@
                                         echo "<td>".$pista['3']."</td>";
                                         echo "<td>".$pista['4']."</td>";
                                         echo "<td>".$pista['5']."</td>";
-                                        print("<form method=\"POST\" action=\"../../Back/ModificarUser.php\">           
+                                        print("<form method=\"POST\" action=\"./ModificarPista.php\">           
                                                     <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$pista['0'].">
                                                     <td>
                                                         <input type=\"submit\" value=\"Modificar\">

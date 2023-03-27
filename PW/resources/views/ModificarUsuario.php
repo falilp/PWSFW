@@ -80,7 +80,7 @@
                 print("<div class=\"formulario-container\">");
                 print("<div class=\"formulario\">");
                     print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
-                    <h2>Ajustes de usuario</h2>
+                    <h2>Modificar Usuario: </h2>
                     <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
                             <p>
                                 <label>Nombre:</label><br>
