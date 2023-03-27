@@ -96,17 +96,6 @@
                             <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
                         </form>
                     ");
-                    
-                    print("</div>"); 
-                    //Restablecer la contraseña
-                    print("<div class=\"formulario\">");
-                        print(" <form action=\"../../Back/restablecercontrasena.php\" method=\"POST\">
-                            <h2>Restablecer Contraseña</h2>
-                                <label>Introduce la nueva contraseña: </label>
-                                <input type=\"password\" name=\"contrasena\" value=\"contrasenna\" required>
-                                <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
-                        </form>");
-                print("</div>");  
                 }
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
