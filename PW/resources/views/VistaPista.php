@@ -90,6 +90,8 @@
                                     <th>disponible</th>
                                     <th>mensaje</th>
                                     <th>HoraDisponible</th>
+                                    <th>Modificar</th>
+                                    <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>

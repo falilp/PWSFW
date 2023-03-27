@@ -89,6 +89,9 @@
                                         <th>Apellidos</th>
                                         <th>email</th>
                                         <th>Telefono</th>
+                                        <th>Permisos</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -100,6 +103,7 @@
                                             echo "<td>".$usuar['2']."</td>";
                                             echo "<td>".$usuar['3']."</td>";
                                             echo "<td>".$usuar['5']."</td>";
+                                            echo "<td>".$usuar['6']."</td>";
                                             print("<form method=\"POST\" action=\"./ModificarUsuario.php\">           
                                                     <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$usuar['0'].">
                                                     <td>

@@ -90,6 +90,7 @@
                                     <th>codPista</th>
                                     <th>categoria</th>
                                     <th>codUsuario</th>
+                                    <th>Modificar</th>
                                     <th>Eliminar</th>
                                     </tr>
                                 </thead>

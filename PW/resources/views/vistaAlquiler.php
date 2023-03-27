@@ -89,6 +89,8 @@
                                     <th>fecha_alquiler</th>
                                     <th>precio</th>
                                     <th>Descuento</th>
+                                    <th>Modificar</th>
+                                    <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
