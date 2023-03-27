@@ -5,12 +5,11 @@
         <meta title="Mi cuenta">
         <link rel="icon" href="../img/iconoPagina.ico" >
         <link rel="stylesheet" href="EstiloCuenta.css">
-        <link rel="stylesheet" href="EstiloGeneral.css">
+        <link rel="stylesheet" href="EstiloCuentaback.css">
     </head>
     <body>
         <header>
             <h1>Mi Cuenta
-            <img class="logo" src="../img/logoKMB.png">
             </h1>
         </header>
         <nav>
@@ -68,55 +67,47 @@
             <!--Codigo PHP-->
             <div class="container_form">
             <?php
-                function recuperar_datos($email){
+                function recuperar_datos($email)
+                {
                     //Conexion a la base de datos y creacion de la consulta
                     $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
-
-                    //Consulta para obtener el codUsuario
-                    $consulta = "SELECT * FROM pista";
+                    $consulta = "SELECT * FROM usuario WHERE email = '$email'";
                     $resultado = $conexion->query($consulta);
+                    $objeto = $resultado->fetch_array();
                     
-                    if($resultado){
-                        $reservas = $resultado->fetch_all();
-                            //Mostramos en una tabla las reservas de PISTAS
-                            print("<h2>Lista de Usuarios</h2>");
-                            print("
-                            <table>
-                                <thead>
-                                    <tr>
-                                    <th>CodPista</th>
-                                    <th>tipoPista</th>
-                                    <th>precioHora</th>
-                                    <th>disponible</th>
-                                    <th>mensaje</th>
-                                    <th>HoraDisponible</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                ");
-                                    foreach($reservas as $pista){
-                                        echo "<tr>";
-                                        echo "<td>".$pista['0']."</td>";
-                                        echo "<td>".$pista['1']."</td>";
-                                        echo "<td>".$pista['2']."</td>";
-                                        echo "<td>".$pista['3']."</td>";
-                                        echo "<td>".$pista['4']."</td>";
-                                        echo "<td>".$pista['5']."</td>";
-                                        echo "<td>"."Modificar"."</td>";
-                                        echo "<td>"."Eliminar"."</td>";
-                                        echo "</tr>";
-                                    }
-                            print("
-                                </tbody>
-                            </table>
-                            ");
-                        }else{
-                            header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
-                        }
-
-                        
+                    //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
+                print("<div class=\"formulario-container\">");
+                print("<div class=\"formulario\">");
+                    print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
+                    <h2>Ajustes de usuario</h2>
+                    <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
+                            <p>
+                                <label>Tipo:</label><br>
+                                <input type=\"text\" name=\"nombre\" value=".$objeto['1']." required>
+                            </p>
+                            <p>
+                                <label>Precio:</label><br>
+                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2']." required>
+                            </p>
+                            <p>
+                                <label>Disponible:</label><br>
+                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['3']." required>   
+                            </p>
+                            <p>
+                                <label>Mensaje:</label><br>
+                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['4']." required>   
+                            </p>
+                            <p>
+                                <label>Hora Disponible:</label><br>
+                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5']." required>
+                            </p>
+                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
+                        </form>
+                    ");
+                    
+                    print("</div>"); 
+                print("</div>");  
                 }
-            
                 //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
                 //$ses = new Sesion();
@@ -153,6 +144,6 @@
                     <li><p class="Parrafos">CP 11519 Puerto Real, Cádiz</p></li>                       <!---->
                 </ul>
             </div>
-        </footer>  
+        </footer>
     </body>
 </html>

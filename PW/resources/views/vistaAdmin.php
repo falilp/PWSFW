@@ -86,7 +86,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Modificar Usuaurio</h5>
                         <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarUsuario.php" class="btn btn-primary">Ir</a>
+                        <a href="VistaUsuario.php" class="btn btn-primary">Ir</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Modificar Pistas</h5>
                         <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarPista.php" class="btn btn-primary">Ir</a>
+                        <a href="VistaPista.php" class="btn btn-primary">Ir</a>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Modificar Alquileres</h5>
                         <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarAlquiler.php" class="btn btn-primary">Ir</a>
+                        <a href="VistaAlquiler.php" class="btn btn-primary">Ir</a>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Modificar Eventos</h5>
                         <p class="card-text">Podras eliminar y generar pistas automáticamente.</p>
-                        <a href="ModificarEvento.php" class="btn btn-primary">Ir</a>
+                        <a href="VistaEvento.php" class="btn btn-primary">Ir</a>
                     </div>
                 </div>
             </div>

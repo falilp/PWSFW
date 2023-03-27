@@ -5,11 +5,12 @@
         <meta title="Mi cuenta">
         <link rel="icon" href="../img/iconoPagina.ico" >
         <link rel="stylesheet" href="EstiloCuenta.css">
-        <link rel="stylesheet" href="EstiloCuentaback.css">
+        <link rel="stylesheet" href="EstiloGeneral.css">
     </head>
     <body>
         <header>
             <h1>Mi Cuenta
+            <img class="logo" src="../img/logoKMB.png">
             </h1>
         </header>
         <nav>
@@ -66,59 +67,99 @@
         <main>
             <!--Codigo PHP-->
             <div class="container_form">
-            <?php
-                function recuperar_datos($email)
-                {
-                    //Conexion a la base de datos y creacion de la consulta
-                    $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                <?php
+                    function recuperar_datos($email){
+                        //Conexion a la base de datos y creacion de la consulta
+                        $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+
+                        //Consulta para obtener el codUsuario
+                        $consulta = "SELECT * FROM usuario";
+                        $resultado = $conexion->query($consulta);
+                        
+                        if($resultado){
+                            $reservas = $resultado->fetch_all();
+                                //Mostramos en una tabla las reservas de PISTAS
+                                print("<h2>Lista de Usuarios</h2>");
+                                print("
+                                <table>
+                                    <thead>
+                                        <tr>
+                                        <th>CodUsuario</th>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>email</th>
+                                        <th>Telefono</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    ");
+                                        foreach($reservas as $usuar){
+                                            echo "<tr>";
+                                            echo "<td>".$usuar['0']."</td>";
+                                            echo "<td>".$usuar['1']."</td>";
+                                            echo "<td>".$usuar['2']."</td>";
+                                            echo "<td>".$usuar['3']."</td>";
+                                            echo "<td>".$usuar['5']."</td>";
+                                            print("<form method=\"POST\" action=\"../../Back/ModificarUser.php\">           
+                                                    <input type=\"hidden\" name=\"Modificar\" id=\"Modificar\" value=".$usuar['0'].">
+                                                    <td>
+                                                        <input type=\"submit\" value=\"Modificar\">
+                                                    </td>
+                                                </form>");
+                                            print("<form method=\"POST\" action=\"../../Back/deleteUser.php\">           
+                                                    <input type=\"hidden\" name=\"Eliminar\" id=\"Eliminar\" value=".$usuar['0'].">
+                                                    <td>
+                                                        <input type=\"submit\" value=\"Eliminar\">
+                                                    </td>
+                                                </form>");
+                                            echo "</tr>";
+                                        }
+                                print("
+                                    </tbody>
+                                </table>
+                                ");
+                            }else{
+                                header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
+                            }
+
+                            
+                    }
+                ?>
+            <?php if(isset($_SESSION['usuario'])):?>
+            <?php   $conexion = mysqli_connect("127.0.0.1","ADMIN","","kmb") or die("Conexion fallida");
+                    $email=$ses->retornarSesion();
                     $consulta = "SELECT * FROM usuario WHERE email = '$email'";
                     $resultado = $conexion->query($consulta);
-                    $objeto = $resultado->fetch_array();
-                    
-                    //Mostramos los nombres en formularios para que el usuario pueda realizar los cambios que desee
-                print("<div class=\"formulario-container\">");
-                print("<div class=\"formulario\">");
-                    print("<form action=\"../../Back/guardarcambiosusuario.php\" method=\"POST\">
-                    <h2>Ajustes de usuario</h2>
-                    <img id=\"img_perfil\" src=\"../img/logoUSUARIOPERFIL.jpg\">
-                            <p>
-                                <label>Fecha:</label><br>
-                                <input type=\"text\" name=\"nombre\" value=".$objeto['1']." required>
-                            </p>
-                            <p>
-                                <label>Descripcion:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['2']." required>
-                            </p>
-                            <p>
-                                <label>Pista:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['3']." required>   
-                            </p>
-                            <p>
-                                <label>Categoria:</label><br>
-                                <input type=\"text\" name=\"primerapellido\" value=".$objeto['4']." required>   
-                            </p>
-                            <p>
-                                <label>Organizado por (Usuario):</label><br>
-                                <input type=\"numer\" name=\"telefono\" value=".$objeto['5']." required>
-                            </p>
-                            <button type=\"submit\" name=\"cambios\" value=".$objeto['0'].">Guardar cambios</button>
-                        </form>
-                    ");
-                    
-                    print("</div>"); 
-                print("</div>");  
-                }
-                //Obtener las credenciales del usuario actual
+                    $objeto = $resultado->fetch_array(); ?>
+            <?php if($objeto[6] == 1):?>
+                <?php //Obtener las credenciales del usuario actual
                 include_once '../../Back/sesion.php'; 
                 //$ses = new Sesion();
                 if(isset($_SESSION['usuario'])){
                     recuperar_datos($ses->retornarSesion());
                 }else{
                     header("Location:http://localhost/PWSFW/PW/resources/views/paginaERROR.html");
-                }
-            ?>
-            </div>
+                }    ?> 
+            <?php else: ?>    
+                <div class="form_container">
+                <form method="post" action="Main.php">
+                        <label>Tienes el acceso restringido:</label>
+                    <input type="submit" value="main">
+                </form>              
+            <?php endif ?>
+        <?php else: ?>
+            <div class="form_container">
+                <form method="post" action="Main.php">
+                        <label>Volver al Inicio:</label>
+                    <input type="submit" value="main">
+                </form>  
+        <?php endif ?>
+        </div>
         </main>
+
+
+
+        
         <footer class="PiePagina" id="Contacto">
             <div class="Columna">
                 <a href="https://www.uca.es/" title="Logo Escuela Superior Ingenieria">                     <!--Enlace a la pagina de la UCA-->
@@ -144,6 +185,6 @@
                     <li><p class="Parrafos">CP 11519 Puerto Real, Cádiz</p></li>                       <!---->
                 </ul>
             </div>
-        </footer>
+        </footer>  
     </body>
 </html>
